@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Models\ContactMessage;
 
 // Quando l'utente visita la home, mostriamo la nostra pagina
 Route::get('/', function () {
@@ -56,3 +57,8 @@ Route::post('/contatti', [ContactController::class, 'store'])
 Route::get('/contatti/grazie', function () {
     return view('pages.contact-thankyou');
 })->name('contact.thankyou');
+
+Route::get('/admin/messages', function () {
+    $messages = ContactMessage::latest()->take(50)->get();
+    return view('pages.admin.messages', compact('messages'));
+})->middleware('admin.basic')->name('admin.messages');

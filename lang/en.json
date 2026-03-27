@@ -157,5 +157,12 @@
   "errors.429.title": "Too many requests",
   "errors.429.subtitle": "You are sending too many requests. Please try again in a few minutes.",
   "errors.429.cta_home": "Back to home",
-  "errors.429.cta_contact": "Contact me"
+  "errors.429.cta_contact": "Contact me",
+  "admin.messages.title": "Received messages",
+  "admin.messages.subtitle": "Last 50 submissions from the contact form.",
+  "admin.messages.empty": "No messages stored yet.",
+  "admin.messages.name": "Name",
+  "admin.messages.email": "Email",
+  "admin.messages.message": "Message",
+  "admin.messages.date": "Date"
 }

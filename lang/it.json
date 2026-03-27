@@ -157,5 +157,12 @@
   "errors.429.title": "Troppe richieste",
   "errors.429.subtitle": "Stai facendo troppe richieste in poco tempo. Riprova tra qualche minuto.",
   "errors.429.cta_home": "Torna alla home",
-  "errors.429.cta_contact": "Contattami"
+  "errors.429.cta_contact": "Contattami",
+  "admin.messages.title": "Messaggi ricevuti",
+  "admin.messages.subtitle": "Ultimi 50 invii dal form di contatto.",
+  "admin.messages.empty": "Nessun messaggio salvato al momento.",
+  "admin.messages.name": "Nome",
+  "admin.messages.email": "Email",
+  "admin.messages.message": "Messaggio",
+  "admin.messages.date": "Data"
 }

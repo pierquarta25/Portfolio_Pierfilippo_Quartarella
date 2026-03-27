@@ -18,6 +18,10 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\SetLocaleFromSession::class,
         ]);
 
+        $middleware->alias([
+            'admin.basic' => \App\Http\Middleware\BasicAdminAuth::class,
+        ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

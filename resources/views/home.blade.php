@@ -223,17 +223,17 @@
                 @endif
                 <button type="submit" class="btn btn-primary w-100">{{ __('contact.send') }}</button>
                 @if ($errors->any())
-                    <div class="mt-3 text-center fw-bold text-danger">
+                    <div class="form-alert error mt-3 text-center fw-bold">
                         {{ __('contact.error') }}
                     </div>
                 @endif
                 @if ($errors->has('recaptcha'))
-                    <div class="mt-3 text-center fw-bold text-danger">
+                    <div class="form-alert error mt-3 text-center fw-bold">
                         {{ $errors->first('recaptcha') }}
                     </div>
                 @endif
                 @if (session('contact_success'))
-                    <div class="mt-3 text-center fw-bold text-success">
+                    <div class="form-alert success mt-3 text-center fw-bold">
                         {{ session('contact_success') }}
                     </div>
                 @endif
