@@ -3,7 +3,7 @@
     {{-- Header articolo --}}
     <header class="page-header">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">{{ __('blog.react.title') }}</h1>
+            <h1 class="fw-bold mb-3" style="font-size: clamp(1.75rem, 5vw, 3.5rem);">{{ __('blog.react.title') }}</h1>
             <div class="d-flex flex-wrap align-items-center text-muted gap-3">
                 <span class="badge bg-primary">{{ __('blog.react.badge') }}</span>
                 <span><i class="fa-regular fa-calendar me-1"></i> {{ __('blog.react.date') }}</span>

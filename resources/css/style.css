@@ -498,11 +498,268 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* EXTRA SMALL MOBILE (360px - 399px) - Galaxy A50, iPhone SE */
+@media (max-width: 375px) {
+    body {
+        font-size: 14px;
+    }
+
+    #hero {
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    #hero h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+    }
+
+    #hero h2 {
+        font-size: 0.95rem;
+    }
+
+    #hero .lead {
+        font-size: 0.9rem;
+    }
+
+    #hero .mt-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-top: 1rem !important;
+    }
+
+    #hero .btn {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .profile-pic {
+        max-width: 280px;
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+
+    .hero-section {
+        padding: 100px 0 60px;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    .skill-box {
+        padding: 0.6rem !important;
+    }
+
+    .skill-box i {
+        font-size: 1.8rem !important;
+    }
+
+    .skill-box h5 {
+        font-size: 0.85rem;
+    }
+
+    #skills .chart-box {
+        height: 200px;
+        max-width: 320px;
+    }
+
+    .cookie-banner {
+        padding: 0.75rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .cookie-banner p {
+        font-size: 0.8rem;
+    }
+
+    .project-card img {
+        height: 180px;
+    }
+
+    .cert-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .page-header {
+        padding: 100px 0 40px;
+    }
+
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* SMALL MOBILE (400px - 479px) - iPhone 11-14 */
+@media (min-width: 376px) and (max-width: 479px) {
+    body {
+        font-size: 14.5px;
+    }
+
+    #hero {
+        text-align: center;
+        padding-top: 70px;
+        padding-bottom: 50px;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    #hero h2 {
+        font-size: 1rem;
+    }
+
+    #hero .mt-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    #hero .btn {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .profile-pic {
+        max-width: 300px;
+        margin-top: 1.5rem;
+    }
+
+    .hero-section {
+        padding: 110px 0 70px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    #skills .chart-box {
+        height: 240px;
+        max-width: 340px;
+    }
+
+    .cookie-banner {
+        padding: 0.75rem;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .project-card img {
+        height: 190px;
+    }
+}
+
+/* TABLET SMALL (480px - 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
     #hero {
         text-align: center;
         padding-top: 80px;
+    }
+
+    #hero h1 {
+        font-size: 2.2rem;
+    }
+
+    #hero .mt-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #hero .btn {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .profile-pic {
+        max-width: 320px;
+        margin-top: 2rem;
+    }
+
+    #skills .chart-box {
+        height: 250px;
+    }
+
+    .cookie-banner {
+        padding: 0.75rem 1rem;
+        flex-direction: column;
+    }
+}
+
+/* TABLET MEDIUM (600px - 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+    #hero {
+        text-align: center;
+        padding-top: 80px;
+    }
+
+    #hero h1 {
+        font-size: 2.3rem;
+    }
+
+    #hero .mt-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    #hero .btn {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .profile-pic {
+        max-width: 330px;
+        margin-top: 2rem;
+    }
+
+    #skills .chart-box {
+        height: 270px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .cookie-banner {
+        padding: 0.75rem 1rem;
+        flex-direction: row;
+    }
+}
+
+/* TABLET LARGE (768px - 991px) - iPad baseline */
+@media (min-width: 768px) and (max-width: 991px) {
+    #hero {
+        text-align: center;
+        padding-top: 90px;
     }
 
     #hero h1 {
@@ -529,6 +786,38 @@ h1, h2, h3, h4, h5, h6 {
 
     #skills .chart-box {
         height: 260px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .cookie-banner {
+        padding: 1rem 1.5rem;
+        flex-direction: row;
+    }
+}
+
+/* DESKTOP (992px and up) */
+@media (min-width: 992px) {
+    .hero-section {
+        padding: 140px 0 90px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    #hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .profile-pic {
+        max-width: 450px;
+    }
+
+    #skills .chart-box {
+        height: 320px;
     }
 }
 

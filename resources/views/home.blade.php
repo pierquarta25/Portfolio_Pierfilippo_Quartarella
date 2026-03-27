@@ -5,11 +5,11 @@
         <div class="container">
             <div class="row align-items-center g-4">
                 <div class="col-md-6">
-                    <h1 class="display-4 fw-bold">
+                    <h1 class="fw-bold" style="font-size: clamp(1.75rem, 5vw, 3.5rem);">
                         {{ __('home.hero.title') }} <span class="gradient-text">Pierfilippo</span>
                     </h1>
-                    <h2 class="h4 text-primary mb-4">{{ __('home.hero.subtitle') }}</h2>
-                    <p class="lead text-secondary">
+                    <h2 class="h4 text-primary mb-4" style="font-size: clamp(0.95rem, 3vw, 1.5rem);">{{ __('home.hero.subtitle') }}</h2>
+                    <p class="lead text-secondary" style="font-size: clamp(0.9rem, 2.5vw, 1.125rem);">
                         {{ __('home.hero.desc') }}
                     </p>
                     <div class="mt-4">
