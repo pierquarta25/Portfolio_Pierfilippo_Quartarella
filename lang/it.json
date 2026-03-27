@@ -181,5 +181,7 @@
   "about.timeline.step3.desc": "Studio costante, piccoli progetti reali e attenzione ai dettagli.",
   "errors.404.kicker": "Pagina smarrita",
   "errors.403.kicker": "Accesso riservato",
-  "errors.500.kicker": "Qualcosa è andato storto"
+  "errors.500.kicker": "Qualcosa è andato storto",
+  "admin.message_deleted": "Messaggio eliminato con successo.",
+  "admin.error_deleting": "Errore nell'eliminazione del messaggio. Riprova."
 }

@@ -27,7 +27,7 @@ class AdminMessages extends Component
     public function deleteMessage($id): void
     {
         try {
-            ContactMessage::find($id)?->delete();
+            ContactMessage::destroy($id);
             session()->flash('success', __('admin.message_deleted'));
         } catch (\Exception $e) {
             session()->flash('error', __('admin.error_deleting'));

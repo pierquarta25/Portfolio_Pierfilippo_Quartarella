@@ -181,5 +181,7 @@
   "about.timeline.step3.desc": "Constant study, small real projects, and focus on details.",
   "errors.404.kicker": "Lost in space",
   "errors.403.kicker": "Restricted access",
-  "errors.500.kicker": "Something went wrong"
+  "errors.500.kicker": "Something went wrong",
+  "admin.message_deleted": "Message successfully deleted.",
+  "admin.error_deleting": "Error when deleting the message. Please try again."
 }
