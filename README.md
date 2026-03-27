@@ -197,8 +197,8 @@ Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per det
 ## 👤 Autore
 
 **Pierfilippo Quartarella**
-- Portfolio: [pierquarta25.github.io](https://pierquarta25.github.io)
-- LinkedIn: [Pierfilippo Quartarella](https://linkedin.com/in/pierfilippo-quartarella)
+- Portfolio: [Portfolio_Pierfilippo_Quartarella] ([https://github.com/pierquarta25])
+- LinkedIn: [Pierfilippo Quartarella] ([https://www.linkedin.com/in/pier-quartarella])
 - Email: pier.quarta25@icloud.com
 
 ---
