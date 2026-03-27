@@ -3,9 +3,8 @@
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Laravel](https://img.shields.io/badge/Laravel-13-red.svg?logo=laravel&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?logo=php&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?logo=tailwind-css&logoColor=white)
+![CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?logo=tailwind-css&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 > **Portfolio dinamico e moderno** sviluppato con Laravel per mostrare progetti, competenze e percorso professionale. Combina design responsivo, funzionalità backend robuste e un'esperienza utente fluida.
 
