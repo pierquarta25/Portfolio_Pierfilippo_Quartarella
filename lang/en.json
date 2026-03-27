@@ -164,5 +164,22 @@
   "admin.messages.name": "Name",
   "admin.messages.email": "Email",
   "admin.messages.message": "Message",
-  "admin.messages.date": "Date"
+  "admin.messages.date": "Date",
+  "about.quick.kicker": "Profile",
+  "about.quick.title": "Building with method, care, and attention to detail",
+  "about.quick.subtitle": "A practical approach focused on users and clean code.",
+  "about.quick.badge_1": "Frontend",
+  "about.quick.badge_2": "Backend",
+  "about.quick.badge_3": "AI",
+  "about.timeline.title": "My path",
+  "about.timeline.cta": "View projects",
+  "about.timeline.step1.title": "Solid foundations",
+  "about.timeline.step1.desc": "HTML, CSS, JavaScript and accessibility basics for clear UIs.",
+  "about.timeline.step2.title": "Full stack",
+  "about.timeline.step2.desc": "PHP, Laravel and Bootstrap to build maintainable products.",
+  "about.timeline.step3.title": "Continuous growth",
+  "about.timeline.step3.desc": "Constant study, small real projects, and focus on details.",
+  "errors.404.kicker": "Lost in space",
+  "errors.403.kicker": "Restricted access",
+  "errors.500.kicker": "Something went wrong"
 }

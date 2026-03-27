@@ -164,5 +164,22 @@
   "admin.messages.name": "Nome",
   "admin.messages.email": "Email",
   "admin.messages.message": "Messaggio",
-  "admin.messages.date": "Data"
+  "admin.messages.date": "Data",
+  "about.quick.kicker": "Profilo",
+  "about.quick.title": "Sviluppo con metodo, attenzione e cura del dettaglio",
+  "about.quick.subtitle": "Un approccio pratico, orientato all’utente e alla qualità del codice.",
+  "about.quick.badge_1": "Frontend",
+  "about.quick.badge_2": "Backend",
+  "about.quick.badge_3": "AI",
+  "about.timeline.title": "Il mio percorso",
+  "about.timeline.cta": "Vedi progetti",
+  "about.timeline.step1.title": "Fondamenti solidi",
+  "about.timeline.step1.desc": "HTML, CSS, JavaScript e basi di accessibilità per UI pulite e leggibili.",
+  "about.timeline.step2.title": "Stack completo",
+  "about.timeline.step2.desc": "PHP, Laravel e Bootstrap per costruire prodotti completi e manutenibili.",
+  "about.timeline.step3.title": "Crescita continua",
+  "about.timeline.step3.desc": "Studio costante, piccoli progetti reali e attenzione ai dettagli.",
+  "errors.404.kicker": "Pagina smarrita",
+  "errors.403.kicker": "Accesso riservato",
+  "errors.500.kicker": "Qualcosa è andato storto"
 }

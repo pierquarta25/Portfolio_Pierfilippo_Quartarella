@@ -8,28 +8,80 @@
         </div>
     </header>
 
-    {{-- Storia --}}
-    <section class="section">
+    {{-- Intro / Storia --}}
+    <section class="section about-hero">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-md-6 hidden text-center">
-                    <img src="{{ asset('media/foto_mia.jpg') }}" alt="Pierfilippo Quartarella" class="img-fluid rounded-circle shadow-lg border border-5 border-white">
-                </div>
-                <div class="col-md-6 hidden">
-                    <div class="mb-5">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa-solid fa-person-running fa-2x text-primary me-3"></i>
-                            <h3 class="fw-bold m-0">{{ __('about.sport.title') }}</h3>
-                        </div>
-                        <p class="text-muted">{{ __('about.sport.desc') }}</p>
+                <div class="col-lg-5 hidden text-center">
+                    <div class="about-portrait">
+                        <img src="{{ asset('media/foto_mia.jpg') }}" alt="Pierfilippo Quartarella" class="img-fluid rounded-circle shadow-lg border border-5 border-white">
                     </div>
+                </div>
+                <div class="col-lg-7 hidden">
+                    <div class="about-intro">
+                        <p class="about-kicker">{{ __('about.quick.kicker') }}</p>
+                        <h2 class="fw-bold mb-3">{{ __('about.quick.title') }}</h2>
+                        <p class="text-muted mb-4">{{ __('about.quick.subtitle') }}</p>
 
-                    <div>
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fa-solid fa-laptop-code fa-2x text-primary me-3"></i>
-                            <h3 class="fw-bold m-0">{{ __('about.tech.title') }}</h3>
+                        <div class="about-badges mb-4">
+                            <span>{{ __('about.quick.badge_1') }}</span>
+                            <span>{{ __('about.quick.badge_2') }}</span>
+                            <span>{{ __('about.quick.badge_3') }}</span>
                         </div>
-                        <p class="text-muted">{{ __('about.tech.desc') }}</p>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="about-card">
+                                    <i class="fa-solid fa-person-running text-primary"></i>
+                                    <div>
+                                        <h3 class="h5 fw-bold mb-1">{{ __('about.sport.title') }}</h3>
+                                        <p class="text-muted mb-0">{{ __('about.sport.desc') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-card">
+                                    <i class="fa-solid fa-laptop-code text-primary"></i>
+                                    <div>
+                                        <h3 class="h5 fw-bold mb-1">{{ __('about.tech.title') }}</h3>
+                                        <p class="text-muted mb-0">{{ __('about.tech.desc') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Percorso --}}
+    <section class="section section-alt">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+                <h2 class="fw-bold m-0">{{ __('about.timeline.title') }}</h2>
+                <a href="{{ route('projects') }}" class="btn btn-outline-primary btn-sm">{{ __('about.timeline.cta') }}</a>
+            </div>
+            <div class="about-timeline">
+                <div class="timeline-item hidden">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="h5 fw-bold mb-1">{{ __('about.timeline.step1.title') }}</h3>
+                        <p class="text-muted mb-0">{{ __('about.timeline.step1.desc') }}</p>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="h5 fw-bold mb-1">{{ __('about.timeline.step2.title') }}</h3>
+                        <p class="text-muted mb-0">{{ __('about.timeline.step2.desc') }}</p>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 class="h5 fw-bold mb-1">{{ __('about.timeline.step3.title') }}</h3>
+                        <p class="text-muted mb-0">{{ __('about.timeline.step3.desc') }}</p>
                     </div>
                 </div>
             </div>
@@ -37,7 +89,7 @@
     </section>
 
     {{-- Valori --}}
-    <section class="section section-alt">
+    <section class="section">
         <div class="container text-center">
             <h2 class="fw-bold mb-5">{{ __('about.values.title') }}</h2>
             <div class="row g-4">
