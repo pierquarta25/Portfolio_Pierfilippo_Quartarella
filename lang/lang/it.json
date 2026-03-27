@@ -1,0 +1,11 @@
+{
+    "nav.home":            "Home",
+    "nav.about":           "Chi Sono",
+    "nav.skills":          "Competenze",
+    "nav.projects":        "Progetti",
+    "nav.blog":            "Blog",
+    "nav.contact":         "Contatti",
+    "nav.cv":              "Scarica CV",
+    "lang.button":         "EN",
+    "theme.label":         "Cambia tema"
+}
