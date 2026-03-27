@@ -100,6 +100,38 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+.menu-toggle {
+    width: 34px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.menu-bars {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu-bars span {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 999px;
+}
+
+.menu-toggle {
+    color: #021c44;
+    border-color: #021c44;
+}
+
+.menu-bars span {
+    background: currentColor;
+}
+
 .dark-mode .dropdown-menu {
     background: rgba(33, 37, 41, 0.95);
     border: 1px solid #444;
@@ -111,6 +143,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .dark-mode .dropdown-item:hover {
     background-color: #333;
+}
+
+.dark-mode .menu-toggle {
+    color: #fff;
+    border-color: #fff;
 }
 
 /* Immagine Profilo */
@@ -137,6 +174,37 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
     cursor: pointer;
+}
+
+/* Ridimensionamento sezione Competenze */
+#skills .chart-box {
+    max-width: 520px;
+    height: 320px;
+    margin: 0 auto;
+}
+
+#skills .row.g-4 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+}
+
+#skills .skills-grid {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+#skills .skill-box {
+    padding: 0.85rem !important;
+    height: auto;
+}
+
+#skills .skill-box i {
+    font-size: 2.1rem !important;
+}
+
+#skills .skill-box h5 {
+    font-size: 1rem;
+    margin-bottom: 0;
 }
 
 /* Animazioni Scroll */
@@ -453,11 +521,73 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 350px;
         margin-top: 2rem;
     }
+
+    #skills .chart-box {
+        height: 260px;
+    }
 }
 
 /* --- LAYOUT BASE PER LE SEZIONI --- */
 .hero-section {
     padding: 140px 0 90px;
+}
+
+.page-header {
+    padding: 140px 0 60px;
+    background-color: #f8f9fa;
+}
+
+.page-header .lead {
+    max-width: 720px;
+}
+
+.dark-mode .page-header {
+    background-color: #1f1f1f;
+}
+
+/* Error pages */
+.error-illustration {
+    width: 220px;
+    max-width: 100%;
+}
+
+.error-illustration svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.error-home-link {
+    position: relative;
+    color: #021c44;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+}
+
+.error-home-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background: #021c44;
+    transform: scaleX(0.3);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.error-home-link:hover::after {
+    transform: scaleX(1);
+}
+
+.dark-mode .error-home-link {
+    color: #fff;
+}
+
+.dark-mode .error-home-link::after {
+    background: #fff;
 }
 
 .section {
@@ -483,6 +613,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-body {
     padding: 1.25rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(2, 28, 68, 0.12);
+    color: #021c44;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.dark-mode .project-tags span {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
 }
 
 .blog-card {

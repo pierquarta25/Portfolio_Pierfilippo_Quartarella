@@ -115,4 +115,15 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Form Receiver
+    |--------------------------------------------------------------------------
+    |
+    | The email address that will receive contact form messages.
+    |
+    */
+
+    'contact_receiver' => env('CONTACT_RECEIVER_EMAIL', env('MAIL_FROM_ADDRESS')),
+
 ];

@@ -3,9 +3,8 @@
     {{-- Header pagina --}}
     <header class="page-header">
         <div class="container">
-            <p class="eyebrow">Contatti</p>
-            <h1 class="display-4 fw-bold mb-3">Parliamo del tuo progetto</h1>
-            <p class="lead text-muted mb-0">Scrivimi, rispondo velocemente e in modo chiaro.</p>
+            <h1 class="display-4 fw-bold mb-3">{{ __('contact.title') }}</h1>
+            <p class="lead text-muted mb-0">{{ __('contact.page.subtitle') }}</p>
         </div>
     </header>
 
@@ -15,19 +14,50 @@
             <div class="row g-4 align-items-stretch">
                 <div class="col-lg-7">
                     <div class="contact-card hidden">
-                        <h3 class="h5 fw-bold mb-3">Hai un progetto in mente?</h3>
-                        <p class="text-muted mb-4">
-                            Possiamo partire da un’idea o da un redesign. Ti aiuto a trasformarla in un sito che
-                            comunica davvero.
-                        </p>
-                        <div class="d-flex flex-wrap gap-3">
-                            <a class="btn btn-primary btn-lg" href="mailto:pier.quarta25@icloud.com">
-                                Scrivimi una mail
-                            </a>
-                            <a class="btn btn-outline-primary btn-lg" href="{{ route('projects') }}">
-                                Guarda i progetti
-                            </a>
-                        </div>
+                        <h3 class="h5 fw-bold mb-3">{{ __('contact.form.title') }}</h3>
+                        <p class="text-muted mb-4">{{ __('contact.form.desc') }}</p>
+
+                        <form method="POST" action="{{ route('contact.submit') }}">
+                            @csrf
+                            <div class="visually-hidden">
+                                <label for="honeypot">Non compilare questo campo se sei umano:</label>
+                                <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact-name" class="form-label">{{ __('contact.label_name') }}</label>
+                                <input type="text" class="form-control" id="contact-name" name="name" autocomplete="name" value="{{ old('name') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact-email" class="form-label">{{ __('contact.label_email') }}</label>
+                                <input type="email" class="form-control" id="contact-email" name="email" required autocomplete="email" value="{{ old('email') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact-message" class="form-label">{{ __('contact.label_message') }}</label>
+                                <textarea class="form-control" id="contact-message" name="message" rows="4" required>{{ old('message') }}</textarea>
+                            </div>
+                            @if (config('services.recaptcha.site'))
+                                <div class="mb-3 d-flex justify-content-center">
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site') }}"></div>
+                                </div>
+                            @endif
+                            <button type="submit" class="btn btn-primary w-100">{{ __('contact.send') }}</button>
+
+                            @if ($errors->any())
+                                <div class="mt-3 text-center fw-bold text-danger">
+                                    {{ __('contact.error') }}
+                                </div>
+                            @endif
+                            @if ($errors->has('recaptcha'))
+                                <div class="mt-3 text-center fw-bold text-danger">
+                                    {{ $errors->first('recaptcha') }}
+                                </div>
+                            @endif
+                            @if (session('contact_success'))
+                                <div class="mt-3 text-center fw-bold text-success">
+                                    {{ session('contact_success') }}
+                                </div>
+                            @endif
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -69,3 +99,9 @@
     </section>
 
 </x-layouts.app>
+
+@push('scripts')
+    @if (config('services.recaptcha.site'))
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    @endif
+@endpush

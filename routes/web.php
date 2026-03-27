@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 // Quando l'utente visita la home, mostriamo la nostra pagina
 Route::get('/', function () {
@@ -15,6 +16,18 @@ Route::get('/chi-sono', function () {
 Route::get('/progetti', function () {
     return view('pages.projects');
 })->name('projects');
+
+Route::get('/progetti/techzone', function () {
+    return view('pages.projects.techzone');
+})->name('projects.techzone');
+
+Route::get('/progetti/sito-arte', function () {
+    return view('pages.projects.art');
+})->name('projects.art');
+
+Route::get('/progetti/progetto-red', function () {
+    return view('pages.projects.red');
+})->name('projects.red');
 
 Route::get('/blog', function () {
     return view('pages.blog.index');
@@ -35,3 +48,11 @@ Route::get('/blog/bootstrap-vs-tailwind', function () {
 Route::get('/contatti', function () {
     return view('pages.contact');
 })->name('contact');
+
+Route::post('/contatti', [ContactController::class, 'store'])
+    ->middleware('throttle:contact')
+    ->name('contact.submit');
+
+Route::get('/contatti/grazie', function () {
+    return view('pages.contact-thankyou');
+})->name('contact.thankyou');

@@ -10,10 +10,10 @@
     <div class="footer-content py-4">
         <p class="mb-0">
             &copy; <span id="current-year">2026</span> Pierfilippo Quartarella.
-            <span>Tutti i diritti riservati.</span>
+            <span>{{ __('footer.rights') }}</span>
         </p>
         <p class="mb-0 small" style="opacity: 0.6; font-size: 0.8rem;">
-            Ultimo aggiornamento: <span id="last-updated"></span>
+            {{ __('footer.updated') }}: <span>{{ $git_last_updated ?? '—' }}</span>
         </p>
         <div class="mt-2 social-icons">
             <a href="https://www.linkedin.com/in/pier-quartarella/" target="_blank" class="text-white me-3">
