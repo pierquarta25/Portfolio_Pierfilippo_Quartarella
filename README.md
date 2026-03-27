@@ -1,104 +1,208 @@
 # 👨‍💻 Portfolio Personale - Pierfilippo Quartarella
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![PHP](https://img.shields.io/badge/PHP-8.0%2B-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-13-red.svg?logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?logo=php&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?logo=tailwind-css&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-> **Web Application dinamica** sviluppata per mostrare progetti, competenze e percorso professionale. Un mix di design moderno e logica backend funzionale.
+> **Portfolio dinamico e moderno** sviluppato con Laravel per mostrare progetti, competenze e percorso professionale. Combina design responsivo, funzionalità backend robuste e un'esperienza utente fluida.
 
 ---
 
-## ✅ Versione Laravel
+## 🌟 Panoramica e Caratteristiche
 
-La migrazione completa in Laravel è in `portfolio-laravel/`.  
-Per avviare la nuova versione:
-
-```bash
-cd portfolio-laravel
-npm install
-npm run dev
-php artisan serve
-```
-
----
-
-## 🌟 Overview & Features
-
-Questo progetto non è solo una vetrina statica, ma una dimostrazione di competenze Full Stack.
+Questo progetto è una dimostrazione completa di competenze Full Stack, utilizzando Laravel come framework backend e un frontend moderno con Tailwind CSS e Bootstrap.
 
 ### Frontend Engineering
-*   **UI/UX Avanzata:** Design responsivo basato su **Bootstrap 5** con personalizzazioni CSS3 (Glassmorphism, Parallasse, 3D Flip Cards).
-*   **Internationalization (i18n):** Sistema custom JS per il cambio lingua (IT/EN) istantaneo con persistenza via `localStorage`.
-*   **Dark Mode:** Gestione tema automatica (preferenze di sistema) e manuale.
-*   **Performance:** Lazy loading delle risorse e Preloader per un'esperienza fluida.
+*   **UI/UX Moderna:** Design responsivo con **Tailwind CSS 4** e **Bootstrap 5**, effetti glassmorphism, animazioni 3D e transizioni fluide.
+*   **Internazionalizzazione (i18n):** Sistema di traduzione completo con supporto per Italiano e Inglese, persistenza delle preferenze.
+*   **Dark Mode:** Gestione automatica del tema basata sulle preferenze di sistema e toggle manuale.
+*   **Ottimizzazioni Performance:** Lazy loading, preloader e animazioni al viewport per un'esperienza utente ottimale.
 
-### Backend & Security
-*   **PHP Mailer:** Gestione server-side del modulo contatti (no servizi terzi).
-*   **Anti-Spam:** Implementazione tecnica **Honeypot** per bloccare i bot senza CAPTCHA invasivi.
-*   **GDPR Compliance:** Sistema di gestione cookie granulare con blocco preventivo degli script di tracciamento (Google Analytics) prima del consenso.
+### Backend & Sicurezza
+*   **Laravel Framework:** Architettura MVC robusta con Eloquent ORM per la gestione dei dati.
+*   **Livewire:** Componenti interattivi per funzionalità dinamiche senza JavaScript pesante.
+*   **Sistema Contatti:** Form di contatto con validazione, protezione anti-spam (honeypot e reCAPTCHA opzionale), salvataggio in database e invio email.
+*   **GDPR Compliance:** Gestione granulare dei cookie con blocco preventivo degli script di tracciamento.
+
+### Contenuti
+*   **Sezioni Portfolio:** Home, Chi Sono, Progetti (con pagine dedicate), Blog con articoli tecnici.
+*   **Progetti Showcase:** Presentazione di progetti reali come TechZone, Sito Arte, Progetto Red.
+*   **Blog Tecnico:** Articoli su UX Design, React 2026, Bootstrap vs Tailwind.
 
 ## 🛠 Tech Stack
 
 | Area | Tecnologie |
 | :--- | :--- |
-| **Frontend** | HTML5, CSS3, JavaScript (ES6+), Bootstrap 5 |
-| **Backend** | PHP 8+ (Native) |
-| **Assets** | FontAwesome 6, Canvas Confetti, Google Fonts (Outfit) |
-| **Tools** | Git, VS Code, XAMPP/MAMP |
+| **Backend** | Laravel 13, PHP 8.3+, Livewire 3 |
+| **Database** | SQLite/MySQL (configurabile) |
+| **Frontend** | HTML5, Tailwind CSS 4, Bootstrap 5, JavaScript (ES6+) |
+| **Build Tool** | Vite 8, Laravel Vite Plugin |
+| **Assets** | FontAwesome 7, Axios, Google Fonts (Outfit) |
+| **Testing** | PHPUnit, Laravel Pint |
+| **Tools** | Composer, NPM, Git |
 
 ## 📸 Screenshots
 
-![alt text](media/navigazione_progetto.png)
+![Navigazione Progetto](media/navigazione_progetto.png)
 
 ---
 
 ## ⚙️ Installazione e Setup Locale
 
-Il progetto richiede un ambiente server PHP per gestire le funzionalità di backend (API contatti).
+### Prerequisiti
+*   PHP 8.3 o superiore
+*   Composer
+*   Node.js e NPM
+*   Database SQLite o MySQL (opzionale, SQLite preconfigurato)
 
-### 1. Prerequisiti
-*   PHP installato (o ambiente come XAMPP/MAMP/Laragon).
-*   Git.
-
-### 2. Clonazione
+### 1. Clonazione del Repository
 ```bash
-git clone https://github.com/pierquarta25
-cd portfolio
+git clone https://github.com/pierquarta25/portfolio-laravel.git
+cd portfolio-laravel
 ```
 
-### 3. Configurazione Backend
-Per abilitare l'invio reale delle email, modificare il file `api/contact.php`:
-
-```php
-// api/contact.php
-$to = "pier.quarta25@icloud.com"; 
-```
-
-### 4. Avvio Server
-
-**Opzione A: PHP Built-in Server (Consigliato)**
-Esegui questo comando dalla root del progetto:
+### 2. Installazione Dipendenze
 ```bash
-php -S localhost:8000
+composer install
+npm install
 ```
-Visita: `http://localhost:8000/views/index.html`
 
-**Opzione B: XAMPP/MAMP**
-Sposta la cartella in `htdocs` e avvia Apache.
+### 3. Configurazione Ambiente
+Copia il file di esempio dell'ambiente:
+```bash
+cp .env.example .env
+```
+
+Genera la chiave dell'applicazione:
+```bash
+php artisan key:generate
+```
+
+### 4. Configurazione Database
+Per SQLite (predefinito):
+```bash
+touch database/database.sqlite
+```
+
+Per MySQL, modifica `.env` con le tue credenziali.
+
+Esegui le migrazioni:
+```bash
+php artisan migrate
+```
+
+### 5. Build Assets
+```bash
+npm run build
+# oppure per sviluppo:
+npm run dev
+```
+
+### 6. Avvio Applicazione
+```bash
+php artisan serve
+```
+
+Visita `http://localhost:8000` nel browser.
+
+### Script di Setup Automatico
+Il progetto include uno script Composer per setup completo:
+```bash
+composer run setup
+```
+
+### Ambiente di Sviluppo
+Per sviluppo con hot reload e tutti i servizi:
+```bash
+composer run dev
+```
+
+Questo avvia contemporaneamente: server Laravel, queue worker, logs e Vite dev server.
 
 ## 📂 Struttura del Progetto
 
-```text
-portfolio/
-├── api/              # Endpoint Backend (contact.php)
-├── media/            # Immagini, documenti e favicon
-├── resources/        # Asset statici (CSS, JS Main Logic)
-├── views/            # Pagine Frontend (HTML/PHP)
-│   └── partials/     # Componenti riutilizzabili (se in uso)
-├── ANALISI_PORTFOLIO.md # Documentazione tecnica dettagliata
-└── README.md         # Questo file
 ```
+portfolio-laravel/
+├── app/                          # Codice applicativo Laravel
+│   ├── Http/Controllers/         # Controller (ContactController)
+│   ├── Livewire/                 # Componenti Livewire (Navbar)
+│   ├── Mail/                     # Template email (ContactMessageMail)
+│   └── Models/                   # Modelli Eloquent (User, ContactMessage)
+├── database/                     # Migrazioni e seeders
+├── public/                       # Asset pubblici e build
+├── resources/                    # Risorse frontend
+│   ├── css/                      # Stili CSS
+│   ├── js/                       # JavaScript
+│   └── views/                    # Template Blade
+├── routes/                       # Definizioni route
+├── lang/                         # File traduzione (IT/EN)
+├── tests/                        # Test PHPUnit
+├── ANALISI_PORTFOLIO.md          # Documentazione tecnica
+└── README.md                     # Questo file
+```
+
+## 🧪 Testing
+
+Esegui i test con PHPUnit:
+```bash
+php artisan test
+```
+
+## 📧 Configurazione Email
+
+Per abilitare l'invio email dal form contatti, configura le impostazioni SMTP in `.env`:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=your-smtp-host
+MAIL_PORT=587
+MAIL_USERNAME=your-username
+MAIL_PASSWORD=your-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="noreply@tuosito.com"
+MAIL_FROM_NAME="${APP_NAME}"
+MAIL_CONTACT_RECEIVER="tuaemail@esempio.com"
+```
+
+## 🔒 Sicurezza e Privacy
+
+*   **Anti-Spam:** Honeypot technique per bloccare bot automaticamente
+*   **reCAPTCHA:** Supporto opzionale per Google reCAPTCHA v2
+*   **GDPR:** Gestione cookie con consenso granulare
+*   **Input Validation:** Validazione lato server completa
+*   **CSRF Protection:** Protezione automatica Laravel
+
+## 🌍 Internazionalizzazione
+
+Il sito supporta due lingue:
+*   Italiano (predefinito)
+*   Inglese
+
+Le traduzioni sono gestite tramite file JSON in `lang/`.
+
+## 📈 Roadmap e Miglioramenti Futuri
+
+- [ ] **Pannello Amministrazione:** Sistema per gestire contenuti dinamicamente
+- [ ] **API REST:** Endpoint per integrazione con altri servizi
+- [ ] **Ottimizzazioni SEO:** Meta tag dinamici e sitemap
+- [ ] **PWA Features:** Service worker e manifest per app mobile
+- [ ] **Analytics Avanzati:** Integrazione con strumenti di analisi
+
+## 📄 Licenza
+
+Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per dettagli.
+
+## 👤 Autore
+
+**Pierfilippo Quartarella**
+- Portfolio: [pierquarta25.github.io](https://pierquarta25.github.io)
+- LinkedIn: [Pierfilippo Quartarella](https://linkedin.com/in/pierfilippo-quartarella)
+- Email: pier.quarta25@icloud.com
+
+---
 
 ## 📄 Licenza
 

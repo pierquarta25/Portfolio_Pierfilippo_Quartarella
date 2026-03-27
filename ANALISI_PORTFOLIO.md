@@ -2,61 +2,189 @@
 
 > **Autore:** Pierfilippo Quartarella
 > **Tipo:** Technical Case Study
+> **Versione:** Laravel 13 + Livewire 3
 
-Questo documento analizza le scelte architetturali, le sfide tecniche affrontate e le soluzioni implementate nello sviluppo del Portfolio.
+Questo documento analizza le scelte architetturali, le sfide tecniche affrontate e le soluzioni implementate nello sviluppo del Portfolio basato su Laravel.
 
 ---
 
 ## 1. Architettura del Software
 
-Il progetto segue un approccio **Separation of Concerns (SoC)**, mantenendo distinte la struttura, lo stile e la logica.
+Il progetto segue un approccio **MVC (Model-View-Controller)** rigoroso utilizzando il framework Laravel, con integrazione di **Livewire** per componenti interattivi reattivi.
 
-### Frontend (Vanilla JS & Bootstrap)
-Nonostante l'assenza di framework reattivi (React/Vue), è stato implementato un sistema di **State Management leggero** tramite JavaScript Vanilla per gestire:
-*   **i18n (Internazionalizzazione):** Un dizionario oggetti JSON gestisce le traduzioni. Il rendering del DOM è reattivo al cambio di stato della lingua.
-*   **DOM Injection:** I componenti ripetitivi (Card Progetti, Testimonianze) sono generati via JS, simulando un approccio a componenti.
-*   **Persistenza:** Utilizzo di `localStorage` per mantenere le preferenze utente (Tema, Lingua) tra le sessioni.
+### Backend (Laravel Framework)
+*   **MVC Pattern:** Separazione chiara tra Modelli (Eloquent ORM), Controller e Viste (Blade templates).
+*   **Routing:** Sistema di routing dichiarativo con supporto per middleware e gruppi di route.
+*   **Database Layer:** Migrazioni per versionamento schema, Eloquent ORM per interazioni database, supporto SQLite/MySQL.
+*   **Service Layer:** Utilizzo di Service Providers per configurazione e registrazione servizi.
+*   **Middleware:** Gestione sessioni, localizzazione, CSRF protection.
 
-### Backend (PHP Native)
-L'API è disaccoppiata dal frontend.
-*   **Endpoint:** `api/contact.php` funge da endpoint RESTful che accetta JSON e risponde in JSON.
-*   **Sicurezza:**
-    *   **Input Sanitization:** Utilizzo di `filter_var` e `htmlspecialchars` per prevenire XSS e Injection.
-    *   **Honeypot Strategy:** Un campo nascosto (`honeypot`) intercetta i bot che compilano automaticamente i form, bloccando lo spam senza degradare la UX con CAPTCHA.
+### Frontend (Blade + JavaScript Moderno)
+*   **Template Engine:** Blade per rendering server-side con supporto componenti e layout.
+*   **CSS Framework:** Combinazione di **Tailwind CSS 4** per utility classes e **Bootstrap 5** per componenti UI.
+*   **JavaScript Interattivo:** Vanilla JS per animazioni e interazioni, Chart.js per visualizzazioni dati.
+*   **Livewire Components:** Componenti reattivi per funzionalità dinamiche (navbar con cambio lingua).
+*   **Asset Management:** Vite per bundling e hot reload durante sviluppo.
+
+### Sicurezza Architetturale
+*   **Laravel Security:** CSRF protection automatica, input sanitization, prepared statements.
+*   **Anti-Spam:** Honeypot technique integrata nei form di contatto.
+*   **reCAPTCHA:** Supporto opzionale per Google reCAPTCHA v2.
+*   **Data Validation:** Validazione lato server completa con Laravel Validation.
 
 ---
 
-## 2. UX/UI & Performance
+## 2. Implementazione Tecnica Dettagliata
+
+### Livewire Integration
+Livewire è utilizzato per componenti che richiedono interattività senza JavaScript pesante:
+*   **Navbar Component:** Gestione cambio lingua con persistenza in sessione.
+*   **State Management:** Proprietà reattive e metodi per aggiornamenti UI.
+*   **Server-Side Rendering:** Logica PHP eseguita sul server con aggiornamenti DOM automatici.
+
+### Database Design
+*   **Contact Messages:** Tabella per storage messaggi contatto con campi per name, email, message, IP, user agent.
+*   **Migrations:** Versionamento schema database con rollback capability.
+*   **Seeders:** Popolamento dati iniziale (opzionale).
+
+### Email System
+*   **Laravel Mail:** Sistema integrato per invio email con template Blade.
+*   **ContactMessage Mail:** Classe dedicata per email di contatto con dati strutturati.
+*   **Configurazione:** Supporto SMTP con vari provider.
+
+### Internazionalizzazione (i18n)
+*   **Laravel Localization:** File JSON per traduzioni (it.json, en.json).
+*   **Middleware:** Automatic language detection e session persistence.
+*   **Livewire Integration:** Cambio lingua con redirect completo per aggiornamento globale.
+
+### Frontend Architecture
+*   **Component-Based:** Layout principale con sezioni modulari (hero, skills, projects, blog).
+*   **CSS Strategy:** Tailwind per layout responsive, Bootstrap per componenti, CSS custom per branding.
+*   **JavaScript Modules:** Funzionalità organizzate in moduli (preloader, theme toggle, scroll effects).
+*   **Performance:** Lazy loading immagini, Intersection Observer per animazioni viewport.
+
+---
+
+## 3. UX/UI & Performance
 
 ### Design System
-*   **Glassmorphism:** Utilizzo di sfocature (`backdrop-filter`) sulla navbar e menu mobile per modernità e contesto visivo.
-*   **Interattività 3D:** Le card dei progetti utilizzano `transform: rotateY(180deg)` e `perspective` CSS per un effetto flip realistico.
-*   **Typography Effects:** Utilizzo di gradienti animati (`background-clip: text`) per il personal branding, garantendo impatto visivo senza compromettere la leggibilità.
-*   **Accessibilità:** Contrasto colori verificato, supporto semantico HTML5 e gestione feedback form tramite regioni `aria-live` per screen reader.
-*   **Form UX:** Reset automatico dei campi (Email/Messaggio) post-invio per feedback visivo immediato di "azione completata" e prevenzione di invii duplicati.
-*   **Micro-interactions:** Feedback visivo di successo (Confetti) personalizzato con colore brand `#021c44` e z-index elevato per garantire visibilità.
+*   **Brand Identity:** Colori primary (#021c44), gradient text effects, glassmorphism navbar.
+*   **Dark Mode:** Toggle con persistenza localStorage, supporto preferenze sistema.
+*   **Responsive Design:** Mobile-first con breakpoints Bootstrap + Tailwind.
+*   **Typography:** Font Outfit per body, Space Grotesk per headings.
+*   **Animations:** CSS transforms per card flip, scroll reveal con Intersection Observer.
+*   **Micro-interactions:** Confetti success feedback, smooth scrolling, tooltips.
 
-### Ottimizzazione
-*   **Lazy Loading:** Implementato nativamente e tramite logica JS per elementi non critici.
-*   **Intersection Observer API:** Utilizzata per animare gli elementi solo quando entrano nel viewport, riducendo il carico iniziale del browser rispetto ai listener `scroll` tradizionali.
+### Ottimizzazioni Performance
+*   **Asset Bundling:** Vite per ottimizzazione build production.
+*   **Image Optimization:** Lazy loading nativo, formati moderni (WebP).
+*   **JavaScript:** Event listeners passivi, debouncing scroll events.
+*   **Database:** Indexing automatico Laravel, query optimization.
+*   **Caching:** Laravel cache per configurazioni e viste compilate.
+
+### Accessibilità
+*   **Semantic HTML:** Struttura corretta con landmark roles.
+*   **Keyboard Navigation:** Focus management per componenti interattivi.
+*   **Screen Reader:** Aria labels e live regions per feedback dinamico.
+*   **Color Contrast:** Verifica contrasto colori per leggibilità.
+*   **Form UX:** Validazione real-time, messaggi errore chiari.
 
 ---
 
-## 3. GDPR & Privacy Engineering
+## 4. Sicurezza & Privacy
 
-La conformità al GDPR è stata integrata a livello di codice, non come plugin esterno.
+### Sicurezza Applicativa
+*   **Input Validation:** Laravel validation rules complete con sanitization.
+*   **SQL Injection Prevention:** Eloquent ORM con prepared statements.
+*   **XSS Protection:** Blade escaping automatico, CSP headers.
+*   **CSRF Protection:** Token automatici su tutti i form.
+*   **Rate Limiting:** Middleware per prevenzione abusi.
 
-1.  **Blocco Preventivo:** Gli script di Google Analytics sono presenti nel codice ma non vengono eseguiti/iniettati nel DOM finché non viene rilevato il consenso esplicito.
-2.  **Granularità:** Il sistema è predisposto per accettare diversi livelli di consenso (attualmente implementato: Analytics).
-3.  **Trasparenza:** Banner informativo chiaro con link alla policy.
+### GDPR Compliance
+*   **Cookie Management:** Banner consenso granulare con localStorage.
+*   **Data Minimization:** Solo dati necessari memorizzati (email, messaggio, IP per sicurezza).
+*   **User Rights:** Possibilità cancellazione dati contatto.
+*   **Transparency:** Informativa privacy integrata.
+*   **Third-Party Blocking:** Script analytics bloccati senza consenso.
+
+### Anti-Spam Measures
+*   **Honeypot Field:** Campo nascosto per intercettare bot.
+*   **IP Logging:** Tracking indirizzo IP per analisi sicurezza.
+*   **User Agent:** Logging browser info per detection automated requests.
+*   **Rate Limiting:** Limitazione tentativi form per utente.
 
 ---
 
-## 4. Roadmap & Miglioramenti Futuri
+## 5. Testing & Quality Assurance
 
-Piani per l'evoluzione del repository:
+### Testing Strategy
+*   **PHPUnit:** Unit test per modelli e logica business.
+*   **Feature Test:** Test end-to-end per funzionalità critiche.
+*   **Laravel Dusk:** Browser testing per componenti interattivi (futuro).
+*   **Code Quality:** Laravel Pint per code style, PHPStan per analisi statica.
 
-- [ ] **Refactoring MVC:** Migrare la struttura PHP verso un pattern MVC più rigoroso o un micro-framework (es. Slim/Laravel).
-- [ ] **Database:** Sostituire gli array statici JS/PHP con un database MySQL/SQLite per gestire progetti e blog post.
-- [ ] **Headless CMS:** Implementare un pannello di amministrazione per caricare nuovi contenuti senza toccare il codice.
-- [ ] **Testing:** Aggiungere Unit Test (PHPUnit) per il backend e E2E testing (Cypress) per il frontend.
+### CI/CD Pipeline
+*   **Git Workflow:** Branching strategy con pull requests.
+*   **Automated Testing:** GitHub Actions per test su push/PR.
+*   **Deployment:** Script Composer per setup produzione.
+
+---
+
+## 6. Deployment & DevOps
+
+### Ambiente Sviluppo
+*   **Laravel Sail:** Docker environment per sviluppo consistente.
+*   **Vite Dev Server:** Hot reload per asset durante sviluppo.
+*   **Concurrent Scripts:** Comando `composer run dev` per avvio simultaneo server + Vite + queue.
+
+### Configurazione Produzione
+*   **Environment Variables:** Separazione config sviluppo/produzione.
+*   **Asset Compilation:** Build ottimizzato per produzione.
+*   **Database:** Migrazioni automatiche su deploy.
+*   **Caching:** Ottimizzazioni cache per performance.
+
+---
+
+## 7. Roadmap & Miglioramenti Futuri
+
+### Completato ✅
+- [x] **Migrazione Laravel:** Completata transizione da PHP nativo a Laravel framework.
+- [x] **Database Integration:** Implementato storage messaggi contatto con Eloquent.
+- [x] **Testing Base:** Setup PHPUnit con test case base.
+- [x] **Asset Management:** Vite integration per modern build process.
+
+### In Sviluppo 🚧
+- [ ] **Admin Panel:** Dashboard per gestione contenuti dinamici.
+- [ ] **API REST:** Endpoint per integrazione con servizi esterni.
+- [ ] **PWA Features:** Service worker e manifest per app mobile.
+- [ ] **Analytics Integration:** Google Analytics con GDPR compliance.
+
+### Pianificato 📋
+- [ ] **Content Management:** Sistema headless CMS per blog e progetti.
+- [ ] **Multilingual Expansion:** Supporto aggiuntive lingue (ES, FR).
+- [ ] **Performance Monitoring:** Real user monitoring e error tracking.
+- [ ] **SEO Optimization:** Meta tags dinamici e structured data.
+- [ ] **E2E Testing:** Cypress per test end-to-end completi.
+
+---
+
+## 8. Lezioni Apprese & Best Practices
+
+### Architetturali
+*   **Laravel First:** Utilizzo pieno potenzialità framework invece di reinventare la ruota.
+*   **Livewire Balance:** Uso strategico per interattività semplice, framework JS per complessità elevate.
+*   **Database Design:** Migrazioni fin dall'inizio per evoluzione sicura schema.
+
+### Tecnologiche
+*   **Modern CSS:** Tailwind + Bootstrap combination per produttività e consistenza.
+*   **JavaScript Moderation:** Vanilla JS sufficiente per molte interazioni, librerie solo quando necessario.
+*   **Performance Mindset:** Ottimizzazioni progressive fin dalle prime fasi.
+
+### Process
+*   **Version Control:** Git flow con feature branches e code review.
+*   **Documentation:** Manutenzione documentazione tecnica parallela allo sviluppo.
+*   **Testing Culture:** Test fin dall'inizio per qualità e refactoring sicuro.
+
+---
+
+*Questo documento viene aggiornato con l'evoluzione del progetto. Ultimo aggiornamento: Marzo 2026*
