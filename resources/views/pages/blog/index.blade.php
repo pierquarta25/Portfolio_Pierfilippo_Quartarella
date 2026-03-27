@@ -11,32 +11,7 @@
     {{-- Elenco articoli --}}
     <section class="section">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <article class="blog-card hidden">
-                        <div class="blog-tag">UX</div>
-                        <h3 class="h5 fw-bold">{{ __('blog.ux.title') }}</h3>
-                        <p class="text-muted mb-3">{{ __('blog.ux.desc') }}</p>
-                        <a href="{{ route('blog.ux') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <article class="blog-card hidden">
-                        <div class="blog-tag">Frontend</div>
-                        <h3 class="h5 fw-bold">{{ __('blog.react.title') }}</h3>
-                        <p class="text-muted mb-3">{{ __('blog.react.desc') }}</p>
-                        <a href="{{ route('blog.react') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
-                    </article>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <article class="blog-card hidden">
-                        <div class="blog-tag">CSS</div>
-                        <h3 class="h5 fw-bold">{{ __('blog.frameworks.title') }}</h3>
-                        <p class="text-muted mb-3">{{ __('blog.frameworks.desc') }}</p>
-                        <a href="{{ route('blog.frameworks') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
-                    </article>
-                </div>
-            </div>
+            @livewire('blog-filter')
         </div>
     </section>
 

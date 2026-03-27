@@ -13,51 +13,7 @@
         <div class="container">
             <div class="row g-4 align-items-stretch">
                 <div class="col-lg-7">
-                    <div class="contact-card hidden">
-                        <h3 class="h5 fw-bold mb-3">{{ __('contact.form.title') }}</h3>
-                        <p class="text-muted mb-4">{{ __('contact.form.desc') }}</p>
-
-                        <form method="POST" action="{{ route('contact.submit') }}">
-                            @csrf
-                            <div class="visually-hidden">
-                                <label for="honeypot">Non compilare questo campo se sei umano:</label>
-                                <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
-                            </div>
-                            <div class="mb-3">
-                                <label for="contact-name" class="form-label">{{ __('contact.label_name') }}</label>
-                                <input type="text" class="form-control" id="contact-name" name="name" autocomplete="name" value="{{ old('name') }}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="contact-email" class="form-label">{{ __('contact.label_email') }}</label>
-                                <input type="email" class="form-control" id="contact-email" name="email" required autocomplete="email" value="{{ old('email') }}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="contact-message" class="form-label">{{ __('contact.label_message') }}</label>
-                                <textarea class="form-control" id="contact-message" name="message" rows="4" required>{{ old('message') }}</textarea>
-                            </div>
-                            @if (config('services.recaptcha.site'))
-                                <div class="mb-3 d-flex justify-content-center">
-                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site') }}"></div>
-                                </div>
-                            @endif
-                            <button type="submit" class="btn btn-primary w-100">{{ __('contact.send') }}</button>
-
-                            @if ($errors->any())
-                                <div class="form-alert error mt-3 text-center fw-bold">
-                                    {{ __('contact.error') }}
-                                </div>
-                            @endif
-                            @if ($errors->has('recaptcha'))
-                                <div class="form-alert error mt-3 text-center fw-bold">
-                                    {{ $errors->first('recaptcha') }}
-                                </div>
-                            @endif
-                            @if (session('contact_success'))
-                                <div class="form-alert success mt-3 text-center fw-bold">
-                                    {{ session('contact_success') }}
-                                </div>
-                            @endif
-                        </form>
+                    @livewire('contact-form')
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -104,4 +60,20 @@
     @if (config('services.recaptcha.site'))
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @endif
+    
+    <script>
+        // Auto-hide success messages after 3 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const successAlerts = document.querySelectorAll('.form-alert.success');
+            successAlerts.forEach(alert => {
+                setTimeout(() => {
+                    alert.style.transition = 'opacity 0.5s ease-out';
+                    alert.style.opacity = '0';
+                    setTimeout(() => {
+                        alert.style.display = 'none';
+                    }, 500);
+                }, 3000);
+            });
+        });
+    </script>
 @endpush

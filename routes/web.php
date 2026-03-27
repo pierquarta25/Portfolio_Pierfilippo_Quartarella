@@ -59,6 +59,5 @@ Route::get('/contatti/grazie', function () {
 })->name('contact.thankyou');
 
 Route::get('/admin/messages', function () {
-    $messages = ContactMessage::latest('created_at')->take(50)->get();
-    return view('pages.admin.messages', compact('messages'));
+    return view('pages.admin.messages');
 })->middleware('admin.basic')->name('admin.messages');

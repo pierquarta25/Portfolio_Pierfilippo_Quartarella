@@ -247,4 +247,20 @@
     @if (config('services.recaptcha.site'))
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     @endif
+    
+    <script>
+        // Auto-hide success messages after 3 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const successAlerts = document.querySelectorAll('.form-alert.success');
+            successAlerts.forEach(alert => {
+                setTimeout(() => {
+                    alert.style.transition = 'opacity 0.5s ease-out';
+                    alert.style.opacity = '0';
+                    setTimeout(() => {
+                        alert.style.display = 'none';
+                    }, 500);
+                }, 3000);
+            });
+        });
+    </script>
 @endpush
