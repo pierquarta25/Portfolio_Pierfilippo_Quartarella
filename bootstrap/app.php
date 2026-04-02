@@ -20,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->alias([
             'admin.basic' => \App\Http\Middleware\BasicAdminAuth::class,
+            'admin' => \App\Http\Middleware\IsAdmin::class, // Nuovo middleware per admin autenticati
         ]);
 
     })

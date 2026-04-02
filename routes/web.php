@@ -1,63 +1,66 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\ContactController;
-use App\Models\ContactMessage;
+use Illuminate\Support\Facades\Route;
 
-// Quando l'utente visita la home, mostriamo la nostra pagina
+// Route principale - homepage
 Route::get('/', function () {
-    return view('home');
+    return view('home'); // Cambiato da welcome a home
 })->name('home');
 
-// Pagine dedicate
+// Routes per sezioni pubbliche
 Route::get('/chi-sono', function () {
     return view('pages.about');
 })->name('about');
 
-Route::get('/progetti', function () {
-    return view('pages.projects');
-})->name('projects');
+// Routes progetti pubblici
+Route::resource('projects', ProjectController::class)->only(['index', 'show'])->parameters([
+    'projects' => 'project:slug' // Usa slug invece di ID
+]);
 
-Route::get('/progetti/techzone', function () {
-    return view('pages.projects.techzone');
-})->name('projects.techzone');
+// Routes blog pubblici
+Route::resource('blog', BlogController::class)->only(['index', 'show'])->parameters([
+    'blog' => 'blog:slug' // Usa slug invece di ID
+]);
 
-Route::get('/progetti/sito-arte', function () {
-    return view('pages.projects.art');
-})->name('projects.art');
-
-Route::get('/progetti/progetto-red', function () {
-    return view('pages.projects.red');
-})->name('projects.red');
-
-Route::get('/blog', function () {
-    return view('pages.blog.index');
-})->name('blog.index');
-
-Route::get('/blog/ux-design', function () {
-    return view('pages.blog.ux-design');
-})->name('blog.ux');
-
-Route::get('/blog/react-2026', function () {
-    return view('pages.blog.react-2026');
-})->name('blog.react');
-
-Route::get('/blog/bootstrap-vs-tailwind', function () {
-    return view('pages.blog.bootstrap-vs-tailwind');
-})->name('blog.frameworks');
-
+// Route contatti
 Route::get('/contatti', function () {
     return view('pages.contact');
 })->name('contact');
 
-Route::post('/contatti', [ContactController::class, 'store'])
-    ->middleware('throttle:contact')
-    ->name('contact.submit');
-
+Route::post('/contatti', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/contatti/grazie', function () {
-    return view('pages.contact-thankyou');
-})->name('contact.thankyou');
+    return view('pages.contact-thanks');
+})->name('contact.thanks');
 
-Route::get('/admin/messages', function () {
-    return view('pages.admin.messages');
-})->middleware('admin.basic')->name('admin.messages');
+// Routes admin (protette da autenticazione)
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // Dashboard admin
+    Route::get('/', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+    // Gestione blog
+    Route::resource('blogs', AdminBlogController::class);
+
+    // Gestione progetti
+    Route::resource('projects', AdminProjectController::class);
+});
+
+// Routes autenticazione Breeze
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

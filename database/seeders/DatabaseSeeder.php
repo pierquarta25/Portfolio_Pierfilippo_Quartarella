@@ -15,11 +15,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Crea utente amministratore
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@portfolio.com',
+            'is_admin' => true, // Flag amministratore
+        ]);
 
+        // Crea utente normale per test
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        // Esegui tutti i seeder
+        $this->call([
+            CategorySeeder::class,
+            BlogSeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }
