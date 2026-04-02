@@ -26,13 +26,13 @@ class ProjectController extends Controller
     public function show(string $slug)
     {
         // Trova progetto per slug
-        $project = Project::where('slug', $slug)
-                         ->published()
+        $project = Project::published()
+                         ->where('slug', $slug)
                          ->firstOrFail();
 
         // Progetti correlati (esclusi quello corrente)
-        $relatedProjects = Project::where('id', '!=', $project->id)
-                                 ->published()
+        $relatedProjects = Project::published()
+                                 ->where('id', '!=', $project->id)
                                  ->orderBy('completed_at', 'desc')
                                  ->take(3)
                                  ->get();
