@@ -1,11 +1,11 @@
-<div class="contact-card hidden">
+<div class="contact-card reveal">
     <h3 class="h5 fw-bold mb-3">{{ __('contact.form.title') }}</h3>
     <p class="text-muted mb-4">{{ __('contact.form.desc') }}</p>
 
     <form wire:submit="submit">
         {{-- Honeypot --}}
         <div class="visually-hidden">
-            <label for="honeypot">Non compilare questo campo se sei umano:</label>
+            <label for="honeypot">{{ __('contact.honeypot') }}</label>
             <input type="text" id="honeypot" wire:model="honeypot" tabindex="-1" autocomplete="off">
         </div>
 
@@ -78,7 +78,7 @@
         >
             <span wire:loading.remove>{{ __('contact.send') }}</span>
             <span wire:loading>
-                <i class="fa-solid fa-spinner fa-spin me-2"></i>Invio in corso...
+                <i class="fa-solid fa-spinner fa-spin me-2"></i>{{ __('contact.sending') }}
             </span>
         </button>
 

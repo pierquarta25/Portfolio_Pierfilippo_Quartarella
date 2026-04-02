@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div class="guest-card-header mb-4 text-center">
+        <h1 class="h4 fw-bold mb-1">{{ __('auth.forgot.title') }}</h1>
+        <a href="{{ route('home') }}" class="small text-muted">{{ __('auth.back_home') }}</a>
+    </div>
+
     <div class="mb-4 text-sm text-gray-600">
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </div>

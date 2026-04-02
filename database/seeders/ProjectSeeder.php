@@ -21,6 +21,7 @@ class ProjectSeeder extends Seeder
                 'completed_at' => now()->subMonths(3),
                 'url' => 'https://techzone-demo.com',
                 'github_url' => 'https://github.com/pierquarta25/techzone',
+                'featured_image' => 'media/TechZone.png',
                 'status' => 'published',
             ],
             [
@@ -32,6 +33,7 @@ class ProjectSeeder extends Seeder
                 'completed_at' => now()->subMonths(2),
                 'url' => 'https://arte-gallery.com',
                 'github_url' => 'https://github.com/pierquarta25/arte-gallery',
+                'featured_image' => 'media/Sito_d_arte.png',
                 'status' => 'published',
             ],
             [
@@ -43,6 +45,7 @@ class ProjectSeeder extends Seeder
                 'completed_at' => now()->subMonths(1),
                 'url' => 'https://project-red.app',
                 'github_url' => 'https://github.com/pierquarta25/project-red',
+                'featured_image' => 'media/progettoRED.png',
                 'status' => 'published',
             ],
         ];

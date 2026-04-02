@@ -1,6 +1,6 @@
 <x-layouts.app>
 
-    {{-- Header pagina --}}
+    {{-- Header pagina tech --}}
     <header class="page-header blog-hero">
         <div class="container">
             <p class="blog-hero__eyebrow">{{ __('blog.tech.eyebrow') }}</p>

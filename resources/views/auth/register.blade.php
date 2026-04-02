@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div class="guest-card-header mb-4 text-center">
+        <h1 class="h4 fw-bold mb-1">{{ __('auth.register.title') }}</h1>
+        <a href="{{ route('home') }}" class="small text-muted">{{ __('auth.back_home') }}</a>
+    </div>
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 

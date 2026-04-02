@@ -212,15 +212,21 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
 }
 
-/* Animazioni Scroll */
-.hidden {
+/* Animazioni Scroll: fallback se JS non carica */
+.reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+}
+
+.js .reveal {
     opacity: 0;
     filter: blur(5px);
     transform: translateY(50px);
     transition: all 1s ease-out;
 }
 
-.show {
+.js .show {
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
@@ -929,6 +935,601 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 
+/* --- Blog Tech Look --- */
+.blog-hero {
+    position: relative;
+    background:
+        radial-gradient(700px 300px at 12% 20%, rgba(13,110,253,0.2), transparent 60%),
+        radial-gradient(600px 260px at 85% 15%, rgba(2,28,68,0.28), transparent 60%),
+        linear-gradient(135deg, #0b1020 0%, #0e1f3f 65%, #0f3d8f 120%);
+    color: #fff;
+}
+
+.blog-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.blog-hero .lead {
+    color: rgba(255,255,255,0.8);
+}
+
+.blog-hero__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.6rem;
+}
+
+.blog-hero__title {
+    color: #fff;
+}
+
+.blog-hero__subtitle {
+    color: rgba(255,255,255,0.8);
+}
+
+.blog-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.blog-hero__pill {
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.75rem;
+    color: #fff;
+}
+
+.blog-card--tech {
+    position: relative;
+    border: 1px solid rgba(2,28,68,0.1);
+    background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 100%);
+    overflow: hidden;
+}
+
+.blog-card--tech::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(13,110,253,0.25), transparent 70%);
+}
+
+.blog-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.blog-readtime {
+    font-size: 0.75rem;
+    color: #6c757d;
+    border: 1px dashed rgba(13,110,253,0.35);
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(13,110,253,0.08);
+}
+
+.blog-grid .blog-card {
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(2,28,68,0.08);
+}
+
+/* --- Blog Case-Study Look --- */
+.blog-case-hero {
+    background: linear-gradient(120deg, #f7f9ff 0%, #eef3ff 100%);
+}
+
+.blog-case-hero__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+    color: #6c757d;
+    margin-bottom: 0.6rem;
+}
+
+.case-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 1.5rem;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(2,28,68,0.06);
+}
+
+.case-card--side {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.case-card--alt {
+    background: #f8f9ff;
+}
+
+.case-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.case-badge {
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(13,110,253,0.12);
+    color: #0d6efd;
+}
+
+.case-badge--frontend {
+    background: rgba(2,28,68,0.12);
+    color: #021c44;
+}
+
+.case-badge--css {
+    background: rgba(111,66,193,0.12);
+    color: #6f42c1;
+}
+
+.case-date {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.case-aside {
+    border: 1px dashed rgba(2,28,68,0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    background: #fff;
+}
+
+.case-list {
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Blog Minimal Look --- */
+.blog-minimal-hero {
+    background: #fff;
+}
+
+.blog-minimal-hero__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+    color: #6c757d;
+    margin-bottom: 0.6rem;
+}
+
+.blog-minimal-list {
+    display: grid;
+    gap: 2rem;
+}
+
+.blog-minimal-item {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1.5rem;
+}
+
+.blog-minimal-meta {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* --- Tema Tech Elegante (globale) --- */
+:root {
+    /* Colori principali */
+    --tech-bg: #0b1020;
+    --tech-ink: #0b1020;
+    --tech-accent: #0d6efd;
+    --tech-accent-soft: #6ea8fe;
+    --tech-surface: #ffffff;
+    --tech-surface-soft: #f5f8ff;
+    --tech-border: rgba(2, 28, 68, 0.12);
+    --tech-shadow: 0 12px 28px rgba(2, 28, 68, 0.08);
+}
+
+/* Base: testo e sfondo */
+body {
+    background: #f7f9ff;
+    color: var(--tech-ink);
+    font-family: 'Outfit', sans-serif;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Header e sezioni */
+.page-header,
+.hero-section {
+    background:
+        radial-gradient(700px 300px at 12% 15%, rgba(13,110,253,0.15), transparent 60%),
+        radial-gradient(600px 260px at 85% 10%, rgba(2,28,68,0.18), transparent 60%),
+        linear-gradient(135deg, #0b1020 0%, #0e1f3f 65%, #0f3d8f 120%);
+    color: #fff;
+}
+
+.page-header .lead,
+.hero-section .lead {
+    color: rgba(255,255,255,0.8);
+}
+
+/* Testi secondari nel header: sempre leggibili */
+.page-header .text-muted,
+.page-header .text-secondary,
+.page-header .text-body-secondary {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+.page-header .btn-link {
+    color: #fff;
+}
+
+.page-header .badge {
+    background: rgba(255,255,255,0.16);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.section {
+    background: transparent;
+}
+
+.section-alt {
+    background: linear-gradient(180deg, #f7f9ff 0%, #eef3ff 100%);
+}
+
+/* Card: stile vetrina */
+.project-card,
+.blog-card,
+.contact-card,
+.contact-info,
+.cert-card,
+.skill-box,
+.timeline-item {
+    background: linear-gradient(180deg, var(--tech-surface) 0%, var(--tech-surface-soft) 100%);
+    border: 1px solid var(--tech-border);
+    box-shadow: var(--tech-shadow);
+}
+
+/* Tag e badge */
+.blog-tag,
+.project-tags span {
+    background: rgba(13,110,253,0.12);
+    color: var(--tech-ink);
+    border: 1px solid rgba(13,110,253,0.2);
+}
+
+/* Bottoni */
+.btn-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #0f3d8f 100%);
+    border-color: transparent;
+    box-shadow: 0 10px 22px rgba(13,110,253,0.25);
+}
+
+.btn-outline-primary {
+    border-color: rgba(13,110,253,0.45);
+    color: #0d6efd;
+}
+
+.btn-outline-primary:hover {
+    background: rgba(13,110,253,0.08);
+}
+
+/* Navbar vetrina */
+.navbar-tech {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(2,28,68,0.08);
+}
+
+.navbar-tech .dropdown-menu {
+    border-radius: 14px;
+    border: 1px solid rgba(2,28,68,0.1);
+    box-shadow: 0 12px 28px rgba(2,28,68,0.12);
+}
+
+.navbar-tech .dropdown-item:hover {
+    background: rgba(13,110,253,0.08);
+}
+
+/* Cookie banner leggibile */
+.cookie-banner {
+    background: rgba(11,16,32,0.95);
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.cookie-banner .btn-outline-secondary {
+    color: #fff;
+    border-color: rgba(255,255,255,0.4);
+}
+
+/* Tabelle (blog) più leggibili */
+table.table {
+    background: #fff;
+}
+
+table.table th,
+table.table td {
+    color: #0b1020;
+}
+
+.dark-mode table.table {
+    background: #121a31;
+}
+
+.dark-mode table.table th,
+.dark-mode table.table td {
+    color: #e6ecff;
+}
+
+/* Guest/Auth look (tech elegante) */
+.guest-tech {
+    background:
+        radial-gradient(700px 320px at 12% 15%, rgba(13,110,253,0.12), transparent 60%),
+        radial-gradient(600px 260px at 85% 10%, rgba(2,28,68,0.18), transparent 60%),
+        linear-gradient(135deg, #0b1020 0%, #0e1f3f 65%, #0f3d8f 120%);
+}
+
+.guest-tech .guest-card-header h1,
+.guest-tech .guest-card-header a {
+    color: #fff;
+}
+
+.guest-tech .text-gray-600,
+.guest-tech .text-gray-500 {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+.guest-tech .shadow-md {
+    background: #ffffff;
+    border: 1px solid rgba(2,28,68,0.12);
+    box-shadow: 0 12px 28px rgba(2,28,68,0.08);
+}
+
+/* Immagini uniformi */
+.card-media {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-media--sm {
+    height: 160px;
+}
+
+.hero-media {
+    width: 100%;
+    height: clamp(240px, 40vw, 420px);
+    object-fit: cover;
+    display: block;
+}
+
+/* Micro-animazioni leggere */
+@media (prefers-reduced-motion: no-preference) {
+    .project-card,
+    .blog-card,
+    .contact-card,
+    .contact-info,
+    .cert-card,
+    .skill-box {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover,
+    .blog-card:hover,
+    .contact-card:hover,
+    .contact-info:hover,
+    .cert-card:hover,
+    .skill-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px rgba(2,28,68,0.12);
+    }
+
+    .blog-hero__pill,
+    .blog-readtime {
+        transition: transform 0.2s ease;
+    }
+
+.blog-hero__pill:hover,
+.blog-readtime:hover {
+    transform: translateY(-2px);
+}
+}
+
+/* Form */
+.form-control {
+    border: 1px solid rgba(2,28,68,0.15);
+    background: #fff;
+}
+
+.form-control:focus {
+    border-color: rgba(13,110,253,0.5);
+    box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.15);
+}
+
+/* Navbar (sezione pubblica) */
+#mainNavbar {
+    border-bottom: 1px solid rgba(2,28,68,0.08);
+}
+
+#mainNavbar.navbar-scrolled {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+}
+
+/* Dark mode: mantiene il mood tech */
+.dark-mode body {
+    background: #0b1020;
+    color: #e6ecff;
+}
+
+.dark-mode .section-alt {
+    background: #0f162b;
+}
+
+.dark-mode .project-card,
+.dark-mode .blog-card,
+.dark-mode .contact-card,
+.dark-mode .contact-info,
+.dark-mode .cert-card,
+.dark-mode .skill-box,
+.dark-mode .timeline-item {
+    background: #121a31;
+    border-color: rgba(255,255,255,0.08);
+}
+
+.dark-mode .project-card .text-muted,
+.dark-mode .blog-card .text-muted,
+.dark-mode .contact-card .text-muted,
+.dark-mode .contact-info .text-muted,
+.dark-mode .cert-card .text-muted,
+.dark-mode .skill-box .text-muted,
+.dark-mode .timeline-item .text-muted {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+/* --- Works (My Works) Tech Elegante --- */
+.works-hero {
+    background:
+        radial-gradient(700px 300px at 12% 15%, rgba(13,110,253,0.2), transparent 60%),
+        radial-gradient(600px 260px at 85% 10%, rgba(2,28,68,0.25), transparent 60%),
+        linear-gradient(135deg, #0b1020 0%, #0e1f3f 65%, #0f3d8f 120%);
+    color: #fff;
+}
+
+.works-hero__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.6rem;
+}
+
+.works-hero__subtitle {
+    color: rgba(255,255,255,0.8);
+}
+
+.works-grid .work-card {
+    overflow: hidden;
+}
+
+.work-card__media {
+    position: relative;
+}
+
+.work-card__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11,16,32,0) 0%, rgba(11,16,32,0.25) 100%);
+}
+
+.work-card__body {
+    padding: 1.5rem;
+}
+
+.work-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.work-chip {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(13,110,253,0.12);
+    color: #0b1020;
+    border: 1px solid rgba(13,110,253,0.2);
+}
+
+.work-date {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.work-link {
+    color: #0b1020;
+    text-decoration: none;
+}
+
+.work-link:hover {
+    color: #0d6efd;
+}
+
+.work-details {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.work-details:hover {
+    color: #0b5ed7;
+}
+
+.dark-mode .work-chip {
+    color: #e6ecff;
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.dark-mode .work-date,
+.dark-mode .work-link {
+    color: rgba(255,255,255,0.85);
+}
+
+/* Blog placeholders (quando manca l'immagine) */
+.blog-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #021c44 0%, #0d6efd 100%);
+    color: #fff;
+}
+
+.blog-placeholder--hero {
+    padding: 2rem;
+}
+
+.blog-placeholder__badge {
+    align-self: flex-start;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.blog-placeholder__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
 .project-card img {
     width: 100%;
     height: 220px;
@@ -1195,6 +1796,30 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(2, 28, 68, 0.12);
     color: #021c44;
     margin-bottom: 1rem;
+}
+
+/* Stile tech elegante per la pagina contatti */
+.contact-hero {
+    background:
+        radial-gradient(600px 260px at 12% 20%, rgba(13,110,253,0.18), transparent 60%),
+        radial-gradient(520px 240px at 85% 10%, rgba(2,28,68,0.24), transparent 60%),
+        linear-gradient(135deg, #0b1020 0%, #0e1f3f 65%, #0f3d8f 120%);
+    color: #fff;
+}
+
+.contact-hero .lead {
+    color: rgba(255,255,255,0.8);
+}
+
+.contact-tech .contact-card,
+.contact-tech .contact-info {
+    border: 1px solid rgba(2,28,68,0.12);
+    background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 100%);
+    box-shadow: 0 12px 28px rgba(2,28,68,0.08);
+}
+
+.contact-info--tech .info-row i {
+    color: #0d6efd;
 }
 
 .contact-card,

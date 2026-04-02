@@ -25,10 +25,28 @@ class ProjectController extends Controller
      */
     public function show(string $slug)
     {
-        // Trova progetto per slug
+        // Se esiste una pagina statica per il progetto, usala come fallback
+        $staticMap = [
+            'techzone-ecommerce' => 'techzone',
+            'arte-gallery' => 'art',
+            'project-red' => 'red',
+        ];
+
+        $staticView = $staticMap[$slug] ?? $slug;
+        $staticPath = "pages.projects.{$staticView}";
+
+        // Trova progetto per slug su DB, altrimenti tenta la pagina statica
         $project = Project::published()
                          ->where('slug', $slug)
-                         ->firstOrFail();
+                         ->first();
+
+        if (!$project && view()->exists($staticPath)) {
+            return view($staticPath);
+        }
+
+        if (!$project) {
+            abort(404);
+        }
 
         // Progetti correlati (esclusi quello corrente)
         $relatedProjects = Project::published()

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
-use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -13,16 +11,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        // Recupera articoli pubblicati con paginazione
-        $blogs = Blog::with('category')
-                    ->published()
-                    ->orderBy('published_at', 'desc')
-                    ->paginate(10);
-
-        // Recupera categorie per filtro
-        $categories = Category::withCount('blogs')->get();
-
-        return view('blog.index', compact('blogs', 'categories'));
+        // Stile scelto: tech ma elegante
+        return view('blog.index-tech');
     }
 
     /**
@@ -30,22 +20,22 @@ class BlogController extends Controller
      */
     public function show(string $slug)
     {
-        // Trova articolo per slug
-        $blog = Blog::with('category')
-                   ->where('slug', $slug)
-                   ->published()
-                   ->firstOrFail();
+        // Fallback a pagine statiche
+        $staticMap = [
+            'ux-design' => 'ux-design',
+            'react-2026' => 'react-2026',
+            'bootstrap-vs-tailwind' => 'bootstrap-vs-tailwind',
+            // compatibilità con vecchi slug
+            'ux-design-2026' => 'ux-design',
+            'laravel-13-guide' => 'react-2026',
+            'react-2026-evolution' => 'bootstrap-vs-tailwind',
+        ];
 
-        // Articoli correlati (stessa categoria, escluso quello corrente)
-        $relatedBlogs = Blog::with('category')
-                           ->where('category_id', $blog->category_id)
-                           ->where('id', '!=', $blog->id)
-                           ->published()
-                           ->orderBy('published_at', 'desc')
-                           ->take(3)
-                           ->get();
+        if (isset($staticMap[$slug])) {
+            return view('pages.blog.' . $staticMap[$slug]);
+        }
 
-        return view('blog.show', compact('blog', 'relatedBlogs'));
+        abort(404);
     }
 
     // Metodi non utilizzati per frontend pubblico (solo admin)

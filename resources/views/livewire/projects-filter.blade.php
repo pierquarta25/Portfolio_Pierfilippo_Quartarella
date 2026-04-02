@@ -5,7 +5,7 @@
             <input 
                 type="text" 
                 class="form-control" 
-                placeholder="Cerca progetti..."
+                placeholder="{{ __('projects.filter.search') }}"
                 wire:model.live.debounce="search"
             >
         </div>
@@ -15,7 +15,7 @@
                     class="btn btn-sm @if(empty($tag)) btn-primary @else btn-outline-primary @endif"
                     wire:click="$set('tag', '')"
                 >
-                    Tutti
+                    {{ __('projects.filter.all') }}
                 </button>
                 @foreach($tags as $t)
                     <button 
@@ -31,7 +31,7 @@
 
     {{-- Results Info --}}
     <p class="text-muted mb-4">
-        Trovati <strong>{{ $projectsCount }}</strong> progetto(i)
+        {{ __('projects.filter.found', ['count' => $projectsCount]) }}
     </p>
 
     {{-- Projects Grid --}}
@@ -44,13 +44,13 @@
                     </div>
                     <div class="project-body">
                         <h3 class="h5 fw-bold mb-2">{{ $project['title'] }}</h3>
-                        <p class="text-muted mb-3">Un progetto interessante con focus su {{ implode(', ', array_slice($project['tags'], 0, 2)) }}</p>
+                        <p class="text-muted mb-3">{{ __('projects.filter.teaser', ['tags' => implode(', ', array_slice($project['tags'], 0, 2))]) }}</p>
                         <div class="project-tags mb-3">
                             @foreach($project['tags'] as $tag)
                                 <span class="badge bg-light text-dark me-1">{{ $tag }}</span>
                             @endforeach
                         </div>
-                        <a href="{{ route($project['route']) }}" class="btn btn-outline-primary btn-sm">Visualizza</a>
+                        <a href="{{ route($project['route']) }}" class="btn btn-outline-primary btn-sm">{{ __('project.view') }}</a>
                     </div>
                 </article>
             </div>
@@ -58,7 +58,7 @@
             <div class="col-12">
                 <div class="text-center text-muted py-5">
                     <i class="fa-solid fa-folder-open fa-2x mb-3"></i>
-                    <p>Nessun progetto trovato con i filtri selezionati.</p>
+                    <p>{{ __('projects.filter.none') }}</p>
                 </div>
             </div>
         @endforelse

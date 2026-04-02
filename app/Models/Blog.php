@@ -23,6 +23,11 @@ class Blog extends Model
         'published_at',
     ];
 
+    protected $casts = [
+        'published' => 'boolean',
+        'published_at' => 'datetime',
+    ];
+
     // Campi che dovrebbero essere trattati come date
     protected $dates = [
         'published_at',

@@ -1,4 +1,4 @@
-<nav id="mainNavbar" class="navbar navbar-light fixed-top">
+<nav id="mainNavbar" class="navbar navbar-light fixed-top navbar-tech">
     <div class="container">
 
         {{-- Logo / Brand --}}

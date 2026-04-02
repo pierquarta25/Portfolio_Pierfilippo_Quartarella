@@ -30,7 +30,7 @@
     <section id="skills" class="section">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold">{{ __('skills.title') }}</h2>
-            <div class="row align-items-center hidden">
+            <div class="row align-items-center reveal">
                 <div class="col-md-6">
                     <div class="chart-box">
                         <canvas id="skillsChart"></canvas>
@@ -93,7 +93,7 @@
     <section id="certifications" class="section section-alt">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold">{{ __('certs.title') }}</h2>
-            <div class="row g-4 justify-content-center hidden">
+            <div class="row g-4 justify-content-center reveal">
                 <div class="col-md-6 col-lg-4">
                     <div class="cert-card text-center h-100">
                         <img src="{{ asset('media/Aulab.png') }}" alt="Aulab" class="cert-logo mb-3">
@@ -126,10 +126,10 @@
     <section id="projects" class="section">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold">{{ __('projects.title') }}</h2>
-            <div class="row g-4 hidden">
+            <div class="row g-4 reveal">
                 <div class="col-md-6 col-lg-4">
                     <article class="project-card">
-                        <img src="{{ asset('media/TechZone.png') }}" alt="TechZone">
+                        <img src="{{ asset('media/TechZone.png') }}" alt="TechZone" class="card-media">
                         <div class="project-body">
                             <h3 class="h5 fw-bold mb-2">{{ __('project.techzone.title') }}</h3>
                             <p class="text-muted mb-3">{{ __('project.techzone.desc') }}</p>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <article class="project-card">
-                        <img src="{{ asset('media/Sito_d\'arte.png') }}" alt="Sito d'arte">
+                        <img src="{{ asset('media/sitoarte.png') }}" alt="Sito d'arte" class="card-media">
                         <div class="project-body">
                             <h3 class="h5 fw-bold mb-2">{{ __('project.art.title') }}</h3>
                             <p class="text-muted mb-3">{{ __('project.art.desc') }}</p>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <article class="project-card">
-                        <img src="{{ asset('media/progettoRED.png') }}" alt="Progetto RED">
+                        <img src="{{ asset('media/progettoRED.png') }}" alt="Progetto RED" class="card-media">
                         <div class="project-body">
                             <h3 class="h5 fw-bold mb-2">{{ __('project.red.title') }}</h3>
                             <p class="text-muted mb-3">{{ __('project.red.desc') }}</p>
@@ -165,29 +165,29 @@
     <section id="blog" class="section">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold">{{ __('blog.home.title') }}</h2>
-            <div class="row g-4 hidden">
+            <div class="row g-4 reveal">
                 <div class="col-md-6 col-lg-4">
                     <article class="blog-card">
-                        <div class="blog-tag">UX</div>
+                        <div class="blog-tag">{{ __('blog.tag.ux') }}</div>
                         <h3 class="h5 fw-bold">{{ __('blog.ux.title') }}</h3>
                         <p class="text-muted mb-3">{{ __('blog.ux.desc') }}</p>
-                        <a href="{{ route('blog.show', 'ux-design-2026') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
+                        <a href="{{ route('blog.show', 'ux-design') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <article class="blog-card">
-                        <div class="blog-tag">Frontend</div>
+                        <div class="blog-tag">{{ __('blog.tag.frontend') }}</div>
                         <h3 class="h5 fw-bold">{{ __('blog.react.title') }}</h3>
                         <p class="text-muted mb-3">{{ __('blog.react.desc') }}</p>
-                        <a href="{{ route('blog.show', 'laravel-13-guide') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
+                        <a href="{{ route('blog.show', 'react-2026') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <article class="blog-card">
-                        <div class="blog-tag">CSS</div>
+                        <div class="blog-tag">{{ __('blog.tag.css') }}</div>
                         <h3 class="h5 fw-bold">{{ __('blog.frameworks.title') }}</h3>
                         <p class="text-muted mb-3">{{ __('blog.frameworks.desc') }}</p>
-                        <a href="{{ route('blog.show', 'react-2026-evolution') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
+                        <a href="{{ route('blog.show', 'bootstrap-vs-tailwind') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
                     </article>
                 </div>
             </div>
@@ -197,11 +197,11 @@
     {{-- CONTACT --}}
     <section id="contact" class="section section-alt">
         <div class="container" style="max-width: 600px;">
-            <h2 class="text-center mb-4 fw-bold hidden">{{ __('contact.title') }}</h2>
+            <h2 class="text-center mb-4 fw-bold reveal">{{ __('contact.title') }}</h2>
             <form id="contact-form" method="POST" action="{{ route('contact.store') }}">
                 @csrf
                 <div class="visually-hidden">
-                    <label for="honeypot">Non compilare questo campo se sei umano:</label>
+                    <label for="honeypot">{{ __('contact.honeypot') }}</label>
                     <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
                 </div>
                 <div class="mb-3">

@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row g-5 align-items-start">
                 <div class="col-lg-7">
-                    <img src="{{ asset('media/Sito_d\'arte.png') }}" alt="Sito d'arte" class="img-fluid rounded-4 shadow-sm">
+                    <img src="{{ asset('media/sitoarte.png') }}" alt="Sito d'arte" class="img-fluid rounded-4 shadow-sm">
 
                     <div class="mt-4">
                         <h2 class="h4 fw-bold">{{ __('project.detail.highlights') }}</h2>

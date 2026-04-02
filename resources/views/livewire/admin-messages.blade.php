@@ -34,7 +34,7 @@
                             <i class="fa-solid fa-arrow-{{ $sortDirection === 'asc' ? 'up' : 'down' }}"></i>
                         @endif
                     </th>
-                    <th>Messaggio</th>
+                    <th>{{ __('admin.messages.message') }}</th>
                     <th 
                         style="cursor: pointer;" 
                         wire:click="sort('created_at')"
@@ -45,7 +45,7 @@
                             <i class="fa-solid fa-arrow-{{ $sortDirection === 'asc' ? 'up' : 'down' }}"></i>
                         @endif
                     </th>
-                    <th>Azioni</th>
+                    <th>{{ __('admin.messages.actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,13 +84,13 @@
     @if($messages->hasPages())
         <nav class="d-flex justify-content-between align-items-center mt-4">
             <div class="text-muted small">
-                Mostrando {{ $messages->firstItem() }} a {{ $messages->lastItem() }} di {{ $messages->total() }} messaggi
+                {{ __('admin.messages.showing', ['from' => $messages->firstItem(), 'to' => $messages->lastItem(), 'total' => $messages->total()]) }}
             </div>
             
             <select class="form-select form-select-sm" style="width: auto;" wire:model.live="perPage">
-                <option value="10">10 per pagina</option>
-                <option value="20">20 per pagina</option>
-                <option value="50">50 per pagina</option>
+                <option value="10">{{ __('admin.messages.per_page', ['count' => 10]) }}</option>
+                <option value="20">{{ __('admin.messages.per_page', ['count' => 20]) }}</option>
+                <option value="50">{{ __('admin.messages.per_page', ['count' => 50]) }}</option>
             </select>
 
             <div>

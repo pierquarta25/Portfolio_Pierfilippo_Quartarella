@@ -49,8 +49,7 @@
                     <div class="mt-5">
                         <h5 class="fw-bold">{{ __('blog.share') }}</h5>
                         <div class="d-flex gap-2 mt-3">
-                            <a href="https://github.com/pierquarta25" target="_blank" class="btn btn-primary btn-sm"><i class="fab fa-github me-2"></i>GitHub</a>
-                            <a href="https://www.linkedin.com/in/pier-quartarella/" target="_blank" class="btn btn-primary btn-sm"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+                            <a href="{{ route('blog.index') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
                         </div>
                     </div>
                 </div>
@@ -61,16 +60,16 @@
                             <div class="card-body text-center p-4">
                                 <img src="{{ asset('media/foto_mia.jpg') }}" alt="Pierfilippo" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;">
                                 <h5 class="fw-bold">Pierfilippo Quartarella</h5>
-                                <p class="text-muted small mb-3">Junior Full Stack Developer. Credo che il codice debba servire l'umano, non viceversa.</p>
-                                <a href="{{ route('about') }}" class="btn btn-sm btn-primary rounded-pill px-4">Chi Sono</a>
+                                <p class="text-muted small mb-3">{{ __('blog.author.bio_ux') }}</p>
+                                <a href="{{ route('about') }}" class="btn btn-sm btn-primary rounded-pill px-4">{{ __('blog.author.cta') }}</a>
                             </div>
                         </div>
 
                         <div class="card border-0 shadow-sm">
                             <div class="card-header bg-white fw-bold py-3">{{ __('blog.related') }}</div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item py-3"><a href="{{ route('blog.react') }}" class="text-decoration-none text-dark stretched-link">{{ __('blog.react.title') }}</a></li>
-                                <li class="list-group-item py-3"><a href="{{ route('blog.frameworks') }}" class="text-decoration-none text-dark stretched-link">{{ __('blog.frameworks.title') }}</a></li>
+                                <li class="list-group-item py-3"><a href="{{ route('blog.show', 'react-2026') }}" class="text-decoration-none text-dark stretched-link">{{ __('blog.react.title') }}</a></li>
+                                <li class="list-group-item py-3"><a href="{{ route('blog.show', 'bootstrap-vs-tailwind') }}" class="text-decoration-none text-dark stretched-link">{{ __('blog.frameworks.title') }}</a></li>
                             </ul>
                         </div>
                     </div>

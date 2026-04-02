@@ -29,31 +29,31 @@
                         <table class="table table-bordered table-hover">
                             <thead class="table-light">
                                 <tr>
-                                    <th>Feature</th>
-                                    <th>Bootstrap 5.3+</th>
-                                    <th>Tailwind CSS 4.0</th>
+                                    <th>{{ __('blog.frameworks.table.feature') }}</th>
+                                    <th>{{ __('blog.frameworks.table.bootstrap') }}</th>
+                                    <th>{{ __('blog.frameworks.table.tailwind') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Approccio</strong></td>
-                                    <td>Component-Based (btn, card)</td>
-                                    <td>Utility-First (p-4, flex)</td>
+                                    <td><strong>{{ __('blog.frameworks.table.approach') }}</strong></td>
+                                    <td>{{ __('blog.frameworks.table.approach_bootstrap') }}</td>
+                                    <td>{{ __('blog.frameworks.table.approach_tailwind') }}</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Customizzazione</strong></td>
-                                    <td>Tramite SASS variables</td>
-                                    <td>Configurazione JS / Arbitrary values</td>
+                                    <td><strong>{{ __('blog.frameworks.table.custom') }}</strong></td>
+                                    <td>{{ __('blog.frameworks.table.custom_bootstrap') }}</td>
+                                    <td>{{ __('blog.frameworks.table.custom_tailwind') }}</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>File Size</strong></td>
-                                    <td>Medio (~20kb gzip)</td>
-                                    <td>Minuscolo (Purged, <10kb)</td>
+                                    <td><strong>{{ __('blog.frameworks.table.size') }}</strong></td>
+                                    <td>{{ __('blog.frameworks.table.size_bootstrap') }}</td>
+                                    <td>{{ __('blog.frameworks.table.size_tailwind') }}</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Curva Apprendimento</strong></td>
-                                    <td>Bassa (Copia-incolla facile)</td>
-                                    <td>Media (Devi conoscere CSS)</td>
+                                    <td><strong>{{ __('blog.frameworks.table.learning') }}</strong></td>
+                                    <td>{{ __('blog.frameworks.table.learning_bootstrap') }}</td>
+                                    <td>{{ __('blog.frameworks.table.learning_tailwind') }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -72,8 +72,7 @@
                     <div class="mt-5">
                         <h5 class="fw-bold">{{ __('blog.discuss') }}</h5>
                         <div class="d-flex gap-2 mt-3">
-                            <a href="https://github.com/pierquarta25" target="_blank" class="btn btn-primary btn-sm"><i class="fab fa-github me-2"></i>GitHub</a>
-                            <a href="https://www.linkedin.com/in/pier-quartarella/" target="_blank" class="btn btn-primary btn-sm"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+                            <a href="{{ route('blog.index') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
                         </div>
                     </div>
                 </div>
@@ -84,16 +83,16 @@
                             <div class="card-body text-center p-4">
                                 <img src="{{ asset('media/foto_mia.jpg') }}" alt="Pierfilippo" class="rounded-circle mb-3" style="width: 100px; height: 100px; object-fit: cover;">
                                 <h5 class="fw-bold">Pierfilippo Quartarella</h5>
-                                <p class="text-muted small mb-3">Junior Full Stack Developer. Amo sperimentare con nuovi stack e ottimizzare le performance.</p>
-                                <a href="{{ route('about') }}" class="btn btn-sm btn-primary rounded-pill px-4">Chi Sono</a>
+                                <p class="text-muted small mb-3">{{ __('blog.author.bio_css') }}</p>
+                                <a href="{{ route('about') }}" class="btn btn-sm btn-primary rounded-pill px-4">{{ __('blog.author.cta') }}</a>
                             </div>
                         </div>
 
                         <div class="card border-0 shadow-sm">
                             <div class="card-header bg-white fw-bold py-3">{{ __('blog.related') }}</div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item py-3"><a href="{{ route('blog.react') }}" class="text-decoration-none text-dark stretched-link">{{ __('blog.react.title') }}</a></li>
-                                <li class="list-group-item py-3"><a href="{{ route('blog.ux') }}" class="text-decoration-none text-dark stretched-link">{{ __('blog.ux.title') }}</a></li>
+                                <li class="list-group-item py-3"><a href="{{ route('blog.show', 'react-2026') }}" class="text-decoration-none text-dark stretched-link">{{ __('blog.react.title') }}</a></li>
+                                <li class="list-group-item py-3"><a href="{{ route('blog.show', 'ux-design') }}" class="text-decoration-none text-dark stretched-link">{{ __('blog.ux.title') }}</a></li>
                             </ul>
                         </div>
                     </div>

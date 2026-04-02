@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div class="guest-card-header mb-4 text-center">
+        <h1 class="h4 fw-bold mb-1">{{ __('auth.confirm.title') }}</h1>
+        <a href="{{ route('home') }}" class="small text-muted">{{ __('auth.back_home') }}</a>
+    </div>
+
     <div class="mb-4 text-sm text-gray-600">
         {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
     </div>

@@ -9,7 +9,7 @@
     {{-- Contenuto Footer --}}
     <div class="footer-content py-4">
         <p class="mb-0">
-            &copy; <span id="current-year">2026</span> Pierfilippo Quartarella.
+            {{ __('footer.copy', ['year' => date('Y'), 'name' => 'Pierfilippo Quartarella']) }}
             <span>{{ __('footer.rights') }}</span>
         </p>
         <p class="mb-0 small" style="opacity: 0.6; font-size: 0.8rem;">

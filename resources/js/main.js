@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js');
+
 document.addEventListener('DOMContentLoaded', function () {
     // =========================================================
     // PRELOADER
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    document.querySelectorAll('.hidden').forEach(function (el) {
+    document.querySelectorAll('.reveal').forEach(function (el) {
         observer.observe(el);
     });
 

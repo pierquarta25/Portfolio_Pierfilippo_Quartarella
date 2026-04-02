@@ -24,9 +24,9 @@ class Project extends Model
         'status',
     ];
 
-    // Campi che dovrebbero essere trattati come date
-    protected $dates = [
-        'completed_at',
+    // Cast per date
+    protected $casts = [
+        'completed_at' => 'date',
     ];
 
     // Scope per progetti pubblicati
