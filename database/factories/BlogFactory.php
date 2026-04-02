@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Blog;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends Factory<Blog>
@@ -20,7 +21,7 @@ class BlogFactory extends Factory
         $title = fake()->sentence();
 
         return [
-            'slug' => \Str::slug($title) . '-' . fake()->unique()->numberBetween(1, 1000),
+            'slug' => Str::slug($title) . '-' . fake()->unique()->numberBetween(1, 1000),
             'title' => $title,
             'excerpt' => fake()->paragraph(),
             'content' => fake()->paragraphs(3, true),

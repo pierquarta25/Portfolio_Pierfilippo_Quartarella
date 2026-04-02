@@ -2,9 +2,7 @@
 
 namespace Tests\Feature\Feature;
 
-use App\Models\ContactMessage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ContactControllerTest extends TestCase
