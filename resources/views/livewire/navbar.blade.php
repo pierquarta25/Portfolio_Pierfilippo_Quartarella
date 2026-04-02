@@ -54,7 +54,7 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{ route('home') }}">{{ __('nav.home') }}</a></li>
                     <li><a class="dropdown-item" href="{{ route('about') }}">{{ __('nav.about') }}</a></li>
-                    <li><a class="dropdown-item" href="{{ route('projects') }}">{{ __('nav.projects') }}</a></li>
+                    <li><a class="dropdown-item" href="{{ route('projects.index') }}">{{ __('nav.projects') }}</a></li>
                     <li><a class="dropdown-item" href="{{ route('blog.index') }}">{{ __('nav.blog') }}</a></li>
                     <li><a class="dropdown-item" href="{{ route('contact') }}">{{ __('nav.contact') }}</a></li>
                 </ul>

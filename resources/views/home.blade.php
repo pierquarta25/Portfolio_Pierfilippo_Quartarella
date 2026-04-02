@@ -133,7 +133,7 @@
                         <div class="project-body">
                             <h3 class="h5 fw-bold mb-2">{{ __('project.techzone.title') }}</h3>
                             <p class="text-muted mb-3">{{ __('project.techzone.desc') }}</p>
-                            <a href="{{ route('projects.techzone') }}" class="btn btn-outline-primary btn-sm">{{ __('project.view') }}</a>
+                            <a href="{{ route('projects.show', 'techzone-ecommerce') }}" class="btn btn-outline-primary btn-sm">{{ __('project.view') }}</a>
                         </div>
                     </article>
                 </div>
@@ -143,7 +143,7 @@
                         <div class="project-body">
                             <h3 class="h5 fw-bold mb-2">{{ __('project.art.title') }}</h3>
                             <p class="text-muted mb-3">{{ __('project.art.desc') }}</p>
-                            <a href="{{ route('projects.art') }}" class="btn btn-outline-primary btn-sm">{{ __('project.view') }}</a>
+                            <a href="{{ route('projects.show', 'arte-gallery') }}" class="btn btn-outline-primary btn-sm">{{ __('project.view') }}</a>
                         </div>
                     </article>
                 </div>
@@ -153,7 +153,7 @@
                         <div class="project-body">
                             <h3 class="h5 fw-bold mb-2">{{ __('project.red.title') }}</h3>
                             <p class="text-muted mb-3">{{ __('project.red.desc') }}</p>
-                            <a href="{{ route('projects.red') }}" class="btn btn-outline-primary btn-sm">{{ __('project.view') }}</a>
+                            <a href="{{ route('projects.show', 'project-red') }}" class="btn btn-outline-primary btn-sm">{{ __('project.view') }}</a>
                         </div>
                     </article>
                 </div>
@@ -171,7 +171,7 @@
                         <div class="blog-tag">UX</div>
                         <h3 class="h5 fw-bold">{{ __('blog.ux.title') }}</h3>
                         <p class="text-muted mb-3">{{ __('blog.ux.desc') }}</p>
-                        <a href="{{ route('blog.ux') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
+                        <a href="{{ route('blog.show', 'ux-design-2026') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -179,7 +179,7 @@
                         <div class="blog-tag">Frontend</div>
                         <h3 class="h5 fw-bold">{{ __('blog.react.title') }}</h3>
                         <p class="text-muted mb-3">{{ __('blog.react.desc') }}</p>
-                        <a href="{{ route('blog.react') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
+                        <a href="{{ route('blog.show', 'laravel-13-guide') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
                     </article>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -187,7 +187,7 @@
                         <div class="blog-tag">CSS</div>
                         <h3 class="h5 fw-bold">{{ __('blog.frameworks.title') }}</h3>
                         <p class="text-muted mb-3">{{ __('blog.frameworks.desc') }}</p>
-                        <a href="{{ route('blog.frameworks') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
+                        <a href="{{ route('blog.show', 'react-2026-evolution') }}" class="btn btn-outline-primary btn-sm">{{ __('blog.read') }}</a>
                     </article>
                 </div>
             </div>
@@ -198,7 +198,7 @@
     <section id="contact" class="section section-alt">
         <div class="container" style="max-width: 600px;">
             <h2 class="text-center mb-4 fw-bold hidden">{{ __('contact.title') }}</h2>
-            <form id="contact-form" method="POST" action="{{ route('contact.submit') }}">
+            <form id="contact-form" method="POST" action="{{ route('contact.store') }}">
                 @csrf
                 <div class="visually-hidden">
                     <label for="honeypot">Non compilare questo campo se sei umano:</label>

@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends Model
 {
-    use SoftDeletes; // Abilita eliminazione logica
+    use HasFactory, SoftDeletes; // Abilita factory e eliminazione logica
 
     // Campi che possono essere riempiti in massa
     protected $fillable = [
@@ -26,6 +27,14 @@ class Blog extends Model
     protected $dates = [
         'published_at',
     ];
+
+    // Cast dei campi
+    protected function casts(): array
+    {
+        return [
+            'published' => 'boolean',
+        ];
+    }
 
     // Relazione con Category
     public function category(): BelongsTo

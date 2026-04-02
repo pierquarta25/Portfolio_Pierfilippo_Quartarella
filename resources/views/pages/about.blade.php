@@ -60,7 +60,7 @@
         <div class="container">
             <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
                 <h2 class="fw-bold m-0">{{ __('about.timeline.title') }}</h2>
-                <a href="{{ route('projects') }}" class="btn btn-outline-primary btn-sm">{{ __('about.timeline.cta') }}</a>
+                <a href="{{ route('projects.index') }}" class="btn btn-outline-primary btn-sm">{{ __('about.timeline.cta') }}</a>
             </div>
             <div class="about-timeline">
                 <div class="timeline-item hidden">

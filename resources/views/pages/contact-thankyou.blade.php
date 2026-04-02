@@ -6,7 +6,7 @@
             <p class="lead text-muted mb-4">{{ __('contact.thankyou.subtitle') }}</p>
             <div class="d-flex flex-wrap gap-3">
                 <a href="{{ route('home') }}" class="btn btn-primary btn-lg">{{ __('contact.thankyou.cta_home') }}</a>
-                <a href="{{ route('projects') }}" class="btn btn-outline-primary btn-lg">{{ __('contact.thankyou.cta_projects') }}</a>
+                <a href="{{ route('projects.index') }}" class="btn btn-outline-primary btn-lg">{{ __('contact.thankyou.cta_projects') }}</a>
             </div>
         </div>
     </header>

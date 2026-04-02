@@ -2,7 +2,7 @@
 
     <header class="page-header">
         <div class="container">
-            <a href="{{ route('projects') }}" class="btn btn-link p-0 mb-3">{{ __('project.back') }}</a>
+            <a href="{{ route('projects.index') }}" class="btn btn-link p-0 mb-3">{{ __('project.back') }}</a>
             <h1 class="fw-bold mb-3" style="font-size: clamp(1.75rem, 5vw, 3.5rem);">{{ __('project.techzone.title') }}</h1>
             <p class="lead text-muted mb-0">{{ __('project.techzone.detail.summary') }}</p>
         </div>
